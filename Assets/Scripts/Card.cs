@@ -7,8 +7,8 @@ using TMPro;
 public class Card : MonoBehaviour
 {
     [SerializeField] public EnumCardValue cardValue;
-    [SerializeField] public int cardCount=1;
-    [SerializeField] TextMeshProUGUI cardCounTMP;
+    [SerializeField] public int cardCount;
+    [SerializeField] TextMeshProUGUI cardCountTMP;
     public EnumCardValue CardValue
     {
         get { return cardValue; }
@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
     void Start()
     {
         GetComponent<Image>().sprite = Resources.Load<Sprite>(CardLogoPathChoice(cardValue));
-        cardCounTMP.text = cardCount.ToString();
+        cardCountTMP.text = cardCount.ToString();
     }
 
     string CardLogoPathChoice(EnumCardValue _cardValue)
