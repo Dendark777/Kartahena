@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    private Sprite cardLogo;
-    private string logoPath;
     [SerializeField] public EnumCardValue cardValue;
     public EnumCardValue CardValue
     {
@@ -15,46 +13,57 @@ public class Card : MonoBehaviour
 
     void Start()
     {
-        CardLogoChoice();
+        GetComponent<Image>().sprite = Resources.Load<Sprite>(CardLogoPathChoice(cardValue));
     }
 
-    void CardLogoChoice()
+    string CardLogoPathChoice(EnumCardValue _cardValue)
     {
-        switch (this.cardValue)
+        string _logoPath = "";
+        switch (_cardValue)
         {
             case EnumCardValue.квадрат:
-                logoPath = "Sprites/Cards/Square";
+                _logoPath = "Sprites/Cards/Square";
                 break;
             case EnumCardValue.круг:
-                logoPath = "Sprites/Cards/Circle";
+                _logoPath = "Sprites/Cards/Circle";
                 break;
             case EnumCardValue.треугольник:
-                logoPath = "Sprites/Cards/Triangle";
+                _logoPath = "Sprites/Cards/Triangle";
                 break;
             case EnumCardValue.ромб:
-                logoPath = "Sprites/Cards/Diamond";
+                _logoPath = "Sprites/Cards/Diamond";
                 break;
             case EnumCardValue.сердце:
-                logoPath = "Sprites/Cards/Heart";
+                _logoPath = "Sprites/Cards/Heart";
                 break;
             case EnumCardValue.крест:
-                logoPath = "Sprites/Cards/Club";
-                break;
-            default:
+                _logoPath = "Sprites/Cards/Club";
                 break;
         }
-        cardLogo = Resources.Load<Sprite>(logoPath);
-        this.GetComponent<Image>().sprite = cardLogo;
+        return _logoPath;
     }
+    /*private string CardLogoPathChoice(EnumCardValue i)
+     {
+         string v = i switch
+         {
+             EnumCardValue.круг => "Sprites/Cards/Circle",
+             EnumCardValue.треугольник => "Sprites/Cards/Triangle",
+             EnumCardValue.квадрат => "Sprites/Cards/Square",
+             EnumCardValue.ромб => "Sprites/Cards/Diamond",
+             EnumCardValue.сердце => "Sprites/Cards/Heart",
+             EnumCardValue.крест => "Sprites/Cards/Club",
+             _ => "Sprites/Cards/Circle"
+         };
+         return v;
+     }*/
 
-}
-
-public enum EnumCardValue
-{
-    круг,
-    треугольник,
-    квадрат,
-    ромб,
-    сердце,
-    крест
+    public enum EnumCardValue
+    {
+        круг,
+        треугольник,
+        квадрат,
+        ромб,
+        сердце,
+        крест
+    }
 }
