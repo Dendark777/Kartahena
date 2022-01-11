@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
     [SerializeField] public EnumCardValue cardValue;
+    [SerializeField] public int cardCount=1;
+    [SerializeField] TextMeshProUGUI cardCounTMP;
     public EnumCardValue CardValue
     {
         get { return cardValue; }
     }
-
+    
     void Start()
     {
         GetComponent<Image>().sprite = Resources.Load<Sprite>(CardLogoPathChoice(cardValue));
+        cardCounTMP.text = cardCount.ToString();
     }
 
     string CardLogoPathChoice(EnumCardValue _cardValue)
