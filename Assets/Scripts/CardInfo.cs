@@ -15,12 +15,5 @@ public class CardInfo : MonoBehaviour
         logo.sprite = _card.Logo;
         logo.preserveAspect = true;
     }
-
-    private void Start()
-    {
-        ShowcardInfo(Deck.allCards[transform.GetSiblingIndex()]);
-    }
-
-
 }
 

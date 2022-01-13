@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Card : GameObj
 {
@@ -17,6 +19,7 @@ public static class Deck
 
 public class CardManagerScr : MonoBehaviour
 {
+    
     public void Awake()
     {
         for (int i = 0; i < 17; i++)
@@ -29,6 +32,7 @@ public class CardManagerScr : MonoBehaviour
             Deck.allCards.Add(new Card(EnumGameObjValue.крест, "Sprites/Cards/Xform"));
         }
         Deck.allCards.Shuffle();
+        
     }
 }
 
