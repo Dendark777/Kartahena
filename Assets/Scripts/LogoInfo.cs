@@ -5,14 +5,13 @@ using UnityEngine.UI;
 using TMPro;
 public class LogoInfo : MonoBehaviour
 {
-    public Card selfCard;
+    public GameObj selfGO;
     [SerializeField] public Image logo;
     
-
-    public void ShowLogoInfo(Card _card)
+    public  void ShowLogoInfo(GameObj _go)
     {
-        selfCard = _card;
-        logo.sprite = _card.Logo;
+        selfGO = _go;
+        logo.sprite = _go.Logo;
         logo.preserveAspect = true;
     }
 }

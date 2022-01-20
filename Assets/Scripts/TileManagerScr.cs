@@ -8,23 +8,28 @@ public class Tile : GameObj
     {
     }
 }
-public static class Map
+public static class GameField
 {
     public static List<Tile> allTile = new List<Tile>();
 }
 public class TileManagerScr : MonoBehaviour
 {
+    public LogoInfo LogoInfo { get; set; } = new LogoInfo();
 
     public void Awake()
     {
-        Map.allTile.Add(new Tile(EnumGameObjValue.квадрат, "Sprites/Tile/T_Square"));
-        Map.allTile.Add(new Tile(EnumGameObjValue.круг, "Sprites/Tile/T_Circle"));
-        Map.allTile.Add(new Tile(EnumGameObjValue.треугольник, "Sprites/Tile/T_Triangle"));
-        Map.allTile.Add(new Tile(EnumGameObjValue.ромб, "Sprites/Tile/T_Diamond"));
-        Map.allTile.Add(new Tile(EnumGameObjValue.шестиугольник, "Sprites/Tile/T_Hexagon"));
-        Map.allTile.Add(new Tile(EnumGameObjValue.крест, "Sprites/Tile/T_Xform"));
+        GameField.allTile.Add(new Tile(EnumGameObjValue.квадрат, "Sprites/Tile/T_Square"));
+        GameField.allTile.Add(new Tile(EnumGameObjValue.круг, "Sprites/Tile/T_Circle"));
+        GameField.allTile.Add(new Tile(EnumGameObjValue.треугольник, "Sprites/Tile/T_Triangle"));
+        GameField.allTile.Add(new Tile(EnumGameObjValue.ромб, "Sprites/Tile/T_Diamond"));
+        GameField.allTile.Add(new Tile(EnumGameObjValue.шестиугольник, "Sprites/Tile/T_Hexagon"));
+        GameField.allTile.Add(new Tile(EnumGameObjValue.крест, "Sprites/Tile/T_Xform"));
 
-        Map.allTile.Shuffle();
+        GameField.allTile.Shuffle();
 
+    }
+    public void Start()
+    {
+       LogoInfo.ShowLogoInfo(GameField.allTile[transform.GetSiblingIndex()]);
     }
 }
