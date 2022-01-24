@@ -4,38 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public abstract class GameObj
-{
-    public Sprite Logo;
-
-    public GameObj(EnumGameObjValue gameObjValue, string logoPath)
-    {
-        Logo = Resources.Load<Sprite>(logoPath);
-    }
-
-}
-public class Game
-{
-    public List<Card> playerHand;
-    public Game()
-    {
-        playerHand = GiveHandCard();
-    }
-    List<Card> GiveHandCard()
-    {
-        
-    List<Card> list = new List<Card>();
-        for (int i = 0; i < 6; i++)
-        {
-            list.Add(Deck.allCards[i]);
-            Deck.allCards.RemoveAt(i);
-        }
-        return list;
-    }
-}
-
-
-
 public class GameManagerScr : MonoBehaviour
 {
     public TextMeshProUGUI debug;
@@ -63,8 +31,7 @@ public class GameManagerScr : MonoBehaviour
             return;
         Card card = deck[0];
         GameObject cardGO = Instantiate(cardPref,hand,false);
-        cardGO.GetComponent<CardInfo>().ShowcardInfo(card);
-
+        cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
         deck.RemoveAt(0);
     }
 }
