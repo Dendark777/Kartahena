@@ -7,7 +7,7 @@ public class Dessolve : MonoBehaviour
 {
     private Material material;
 
-    
+    bool isDissolving = false;
     float fade = 1f;
     private void Start()
     {
@@ -15,7 +15,12 @@ public class Dessolve : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space))
+        {
+            isDissolving = true;
+        }       
+       
+        if(isDissolving)
         {
             fade -= Time.deltaTime;
             if(fade<=0f)
@@ -26,15 +31,11 @@ public class Dessolve : MonoBehaviour
             material.SetFloat("_Fade", fade);
         } 
 
-       if(Input.GetKeyDown(KeyCode.E))
+       if(Input.GetKey(KeyCode.E))
        {
-            fade += Time.deltaTime;
-            if(fade>=1f)
-            {
-                fade = 1f;
-              
-            }
+            isDissolving = false;
+            fade = 1f;
             material.SetFloat("_Fade", fade);
-        }
+       }
     }
 }
