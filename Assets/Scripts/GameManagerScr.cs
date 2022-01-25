@@ -3,19 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameManagerScr : MonoBehaviour
 {
+    private List<Card> _deck;
+
     public TextMeshProUGUI debug;
-    public Game currentGame;
     public Transform playerHand;
     public GameObject cardPref;
     private void Start()
     {
-        currentGame = new Game();
-        GiveHandCard(currentGame.playerHand, playerHand);
-        debug.text = $"Вся колода:{Deck.allCards.Count}";
+        CreateDeck();
+        GiveHandCard(_deck, playerHand);
+        debug.text = $"Вся колода:{_deck.Count}";
         
+    }
+
+    private void CreateDeck()
+    {
+        _deck = new List<Card>();
+        EnumCardValue cardValue;
+        int countValue = Enum.GetValues(typeof(EnumCardValue)).Length - 1;
+        for (int i = 0; i < 102; i++)
+        {
+            cardValue = (EnumCardValue)(i%countValue);
+            _deck.Add(new Card(cardValue, $"Sprites/Cards/{cardValue}"));
+        }
+        _deck.Shuffle();
     }
 
     void GiveHandCard(List<Card> deck,Transform hand)

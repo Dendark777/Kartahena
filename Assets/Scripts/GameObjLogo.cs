@@ -6,7 +6,7 @@ public abstract class GameObj
 {
     public Sprite Logo;
 
-    public GameObj(EnumGameObjValue gameObjValue, string logoPath)
+    public GameObj(EnumCardValue gameObjValue, string logoPath)
     {
         Logo = Resources.Load<Sprite>(logoPath);
     }

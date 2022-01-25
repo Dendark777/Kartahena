@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : GameObj
 {
-    public Tile(EnumGameObjValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
+    public Tile(EnumCardValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
     {
     }
 }
@@ -18,14 +18,14 @@ public class TileManagerScr : MonoBehaviour
 
     public void Awake()
     {
-        GameField.allTile.Add(new Tile(EnumGameObjValue.квадрат, "Sprites/Tile/T_Square"));
-        GameField.allTile.Add(new Tile(EnumGameObjValue.круг, "Sprites/Tile/T_Circle"));
-        GameField.allTile.Add(new Tile(EnumGameObjValue.треугольник, "Sprites/Tile/T_Triangle"));
-        GameField.allTile.Add(new Tile(EnumGameObjValue.ромб, "Sprites/Tile/T_Diamond"));
-        GameField.allTile.Add(new Tile(EnumGameObjValue.шестиугольник, "Sprites/Tile/T_Hexagon"));
-        GameField.allTile.Add(new Tile(EnumGameObjValue.крест, "Sprites/Tile/T_Xform"));
+        //GameField.allTile.Add(new Tile(EnumCardValue.квадрат, "Sprites/Tile/T_Square"));
+        //GameField.allTile.Add(new Tile(EnumCardValue.круг, "Sprites/Tile/T_Circle"));
+        //GameField.allTile.Add(new Tile(EnumCardValue.треугольник, "Sprites/Tile/T_Triangle"));
+        //GameField.allTile.Add(new Tile(EnumCardValue.ромб, "Sprites/Tile/T_Diamond"));
+        //GameField.allTile.Add(new Tile(EnumCardValue.шестиугольник, "Sprites/Tile/T_Hexagon"));
+        //GameField.allTile.Add(new Tile(EnumCardValue.крест, "Sprites/Tile/T_Xform"));
 
-        GameField.allTile.Shuffle();
+        //GameField.allTile.Shuffle();
 
     }
     public void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chip : GameObj
 {
-    public Chip(EnumGameObjValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
+    public Chip(EnumCardValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
     {
     }
 }
