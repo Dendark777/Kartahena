@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChipManagerScr : MonoBehaviour
+public interface IClickable 
 {
-    
+    void Click();
 }
