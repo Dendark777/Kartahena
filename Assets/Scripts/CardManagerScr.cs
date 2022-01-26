@@ -27,7 +27,7 @@ public class CardManagerScr : MonoBehaviour
             Deck.allCards.Add(new Card(EnumGameObjValue.квадрат, "Sprites/Cards/Square"));
             Deck.allCards.Add(new Card(EnumGameObjValue.круг, "Sprites/Cards/Circle"));
             Deck.allCards.Add(new Card(EnumGameObjValue.треугольник, "Sprites/Cards/Triangle"));
-            Deck.allCards.Add(new Card(EnumGameObjValue.ромб, "Sprites/Cards/Diamond"));
+            Deck.allCards.Add(new Card(EnumGameObjValue.ромб, "Sprites/Cards/Romb"));
             Deck.allCards.Add(new Card(EnumGameObjValue.шестиугольник, "Sprites/Cards/Hexagon"));
             Deck.allCards.Add(new Card(EnumGameObjValue.крест, "Sprites/Cards/Xform"));
         }
