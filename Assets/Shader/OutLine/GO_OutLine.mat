@@ -25,6 +25,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _OutLineThicknees: 0.0182
+    - _OutlineNoiseSize: 0.7
+    - _OutlineSpeed: 1.5
     - _Thicknees: 0.0186
     m_Colors:
     - Color_60FE7735: {r: 2.187387, g: 15.787228, b: 1.4265567, a: 1}
+    - _OutlineColor: {r: 0, g: 14.626867, b: 75.50626, a: 1}
+    - _OutlineColor2: {r: 0, g: 0.2509804, b: 59.482353, a: 0}
