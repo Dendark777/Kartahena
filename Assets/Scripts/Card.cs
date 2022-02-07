@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Card : GameObj
+public class Card
+{
+    public EnumCardValue CardValue { get; private set; }
+    public string LogoPath { get; private set; }
+    public Card(EnumCardValue cardValue)
     {
-        public Card(EnumCardValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
-        {
-        }
+        CardValue = cardValue;
+        LogoPath = $"Sprites/Cards/{CardValue}";
     }
+}

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chip : GameObj
+public class Chip : BaseImage
 {
-    public Chip(EnumCardValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
+    public Chip(EnumCardValue gameObjValue, string logoPath) : base(logoPath)
     {
     }
 }

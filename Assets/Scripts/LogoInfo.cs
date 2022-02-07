@@ -5,13 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 public class LogoInfo : MonoBehaviour
 {
-    public GameObj selfGO;
     [SerializeField] public Image logo;
     
-    public  void ShowLogoInfo(GameObj _go)
+    public  void ShowLogoInfo(string logoPath)
     {
-        selfGO = _go;
-        logo.sprite = _go.Logo;
+        logo.sprite = Resources.Load<Sprite>(logoPath);
         logo.preserveAspect = true;
     }
 }

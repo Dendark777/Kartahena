@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : GameObj
+public class Tile : BaseImage
 {
-    public Tile(EnumCardValue gameObjValue, string logoPath) : base(gameObjValue, logoPath)
+    public Tile(EnumCardValue gameObjValue, string logoPath) : base(logoPath)
     {
     }
 }
@@ -30,6 +30,6 @@ public class TileManagerScr : MonoBehaviour
     }
     public void Start()
     {
-       LogoInfo.ShowLogoInfo(GameField.allTile[transform.GetSiblingIndex()]);
+       //LogoInfo.ShowLogoInfo(GameField.allTile[transform.GetSiblingIndex()]);
     }
 }

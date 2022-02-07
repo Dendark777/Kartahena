@@ -9,15 +9,14 @@ public class GameManagerScr : MonoBehaviour
 {
     private List<Card> _deck;
 
+    [SerializeField] private List<GameObject> Players;
+
     public TextMeshProUGUI debug;
-    public Transform playerHand;
-    public GameObject cardPref;
     private void Start()
     {
         CreateDeck();
-        GiveHandCard(_deck, playerHand);
+        GiveHandCard(_deck);
         debug.text = $"Вся колода:{_deck.Count}";
-        
     }
 
     private void CreateDeck()
@@ -28,25 +27,23 @@ public class GameManagerScr : MonoBehaviour
         for (int i = 0; i < 102; i++)
         {
             cardValue = (EnumCardValue)(i%countValue);
-            _deck.Add(new Card(cardValue, $"Sprites/Cards/{cardValue}"));
+            _deck.Add(new Card(cardValue));
         }
         _deck.Shuffle();
     }
-
-    void GiveHandCard(List<Card> deck,Transform hand)
+    void GiveHandCard(List<Card> deck)
     {
         int i = 0;
         while (i++ < 6)
-            GiveCardToHand(deck, hand);
+            GiveCardToHand(deck);
     }
 
-    void GiveCardToHand(List<Card> deck, Transform hand)
+    void GiveCardToHand(List<Card> deck)
     {
         if (deck.Count == 0)
             return;
         Card card = deck[0];
-        GameObject cardGO = Instantiate(cardPref,hand,false);
-        cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
+
         deck.RemoveAt(0);
     }
 }

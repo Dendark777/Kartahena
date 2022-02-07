@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class Player
 {   
-    public Player(EnumPlayerColor playerColor,List<Card> playerHand, List<Chip> playerChip)
-    {
 
-    }
 }
 
 public static class PlayersManager
