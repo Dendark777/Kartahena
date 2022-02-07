@@ -8,80 +8,55 @@ using TMPro;
 public class GameManagerScr : MonoBehaviour
 {
     private List<Card> _deck;
-    private List<Tile> _stack;
-
+    
     public TextMeshProUGUI debug;
     public Transform playerHand;
-    public Transform tilePanel;
+    
     public GameObject cardPref;
-    public GameObject tilePref;
+   
     private void Start()
     {
         CreateDeck();
-        CreateTileStack();
+       
         GiveHandCard(_deck, playerHand);
-        PlaseTileToPanel(_stack, tilePanel);
-        debug.text = $"Вся колода:{_stack.Count}";
+        
+        debug.text = $"Вся колода:{_deck.Count}";
                 
     }
 
     private void CreateDeck()
     {
         _deck = new List<Card>();
-        EnumGameObjValue tileValue;
-        int countValue = Enum.GetValues(typeof(EnumGameObjValue)).Length - 1;
+        EnumGameObjValue cardValue;
+        int countValue = Enum.GetValues(typeof(EnumGameObjValue)).Length;
         for (int i = 0; i < 102; i++)
         {
-            tileValue = (EnumGameObjValue)(i % countValue);
-            _deck.Add(new Card(tileValue, $"Sprites/Logo/{tileValue}"));
+            cardValue = (EnumGameObjValue)(i % countValue);
+            _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
         }
-        _deck.Shuffle();
+        /*_deck.Shuffle();*/
     }
 
     void GiveHandCard(List<Card> deck, Transform hand)
     {
         int i = 0;
         while (i++ < 6)
-            CreateCardToPlaeyrHand(deck, hand);
+            CreateCardToPlaeyrHand(deck, hand,i);
     }
 
-    void CreateCardToPlaeyrHand(List<Card> deck, Transform hand)
+    void CreateCardToPlaeyrHand(List<Card> deck, Transform hand,int i)
     {
         if (deck.Count == 0)
             return;
         Card card = deck[0];
         GameObject cardGO = Instantiate(cardPref, hand, false);
         cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
+        cardGO.GetComponent<Transform>().SetSiblingIndex(i);
         deck.RemoveAt(0);
     }
 
-    private void CreateTileStack()
-    {
-        _stack = new List<Tile>();
-        EnumGameObjValue tileValue;
-        int countValue = Enum.GetValues(typeof(EnumGameObjValue)).Length - 1;
+    
+    
 
-        for (int i = 0; i < 6; i++)
-        {
-            tileValue = (EnumGameObjValue)(i % countValue);
-            _stack.Add(new Tile(tileValue, $"Sprites/Logo/{tileValue}"));
-        }
-        _stack.Shuffle();
-    }
-    void CreateTileonStack(List<Tile> _stack, Transform _tileStack)
-    {
-        if (_stack.Count == 0)
-            return;
-        Tile tile = _stack[0];
-        GameObject tileGO = Instantiate(tilePref, _tileStack, false);
-        tileGO.GetComponent<LogoInfo>().ShowLogoInfo(tile);
-        _stack.RemoveAt(0);
-    }
-
-    void PlaseTileToPanel(List<Tile> _stack, Transform _tileStack)
-    {
-        int i = 0;
-        while (i++ < 6)
-            CreateTileonStack(_stack, _tileStack);
-    }
+    
 }

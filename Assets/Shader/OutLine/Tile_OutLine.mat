@@ -31,5 +31,5 @@ Material:
     - _Thicknees: 0.0186
     m_Colors:
     - Color_60FE7735: {r: 2.187387, g: 15.787228, b: 1.4265567, a: 1}
-    - _OutlineColor: {r: 0, g: 14.626867, b: 75.50626, a: 1}
-    - _OutlineColor2: {r: 0, g: 0.2509804, b: 59.482353, a: 0}
+    - _OutlineColor: {r: 12.575952, g: 3.270207, b: 89.34245, a: 1}
+    - _OutlineColor2: {r: 7.4953847, g: 30.132511, b: 75.667694, a: 0}
