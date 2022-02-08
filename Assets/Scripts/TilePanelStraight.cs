@@ -9,7 +9,7 @@ public class TilePanelStraight : MonoBehaviour
 {
     private List<Tile> tileStack;
     [SerializeField] private List<bool> mapPattern;
-    private List<Tile> tileMap;
+    [SerializeField] public List<Tile> tileMap;
     public Transform tilePanelTop;
     public Transform tilePanelMiddle;
     public Transform tilePanelBottom;
