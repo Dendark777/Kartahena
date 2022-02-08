@@ -34,7 +34,7 @@ public class GameManagerScr : MonoBehaviour
             cardValue = (EnumGameObjValue)(i % countValue);
             _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
         }
-        /*_deck.Shuffle();*/
+        _deck.Shuffle();
     }
 
     void GiveHandCard(List<Card> deck, Transform hand)
@@ -51,7 +51,7 @@ public class GameManagerScr : MonoBehaviour
         Card card = deck[0];
         GameObject cardGO = Instantiate(cardPref, hand, false);
         cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
-        cardGO.GetComponent<Transform>().SetSiblingIndex(i);
+        //cardGO.GetComponent<Transform>().SetSiblingIndex(i);
         deck.RemoveAt(0);
     }
 

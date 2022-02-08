@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5812850167676728192}
   - component: {fileID: 1720238982990592564}
   m_Layer: 5
-  m_Name: TilePrefBlank
+  m_Name: TilePrefBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
