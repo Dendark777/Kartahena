@@ -6,21 +6,21 @@ public class PlayerScr
 {
     [SerializeField] private Transform PlayerHand;
     private EnumPlayerColor _playerColor;
-    private List<Card> _playerCards;
+    private List<CardInfo> _playerCards;
     private List<Chip> _playerChip;
     public PlayerScr(EnumPlayerColor playerColor)
     {
         _playerColor = playerColor;
-        _playerCards = new List<Card>();
+        _playerCards = new List<CardInfo>();
         _playerChip = new List<Chip>();
     }
 
-    public void GiveCard(Card card)
+    public void GiveCard(CardInfo card)
     {
         _playerCards.Add(card);
     }
 
-    public void PlayCard(Card card)
+    public void PlayCard(CardInfo card)
     {
         _playerCards.Remove(card);
     }

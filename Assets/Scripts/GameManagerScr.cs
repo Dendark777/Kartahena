@@ -7,7 +7,7 @@ using System;
 
 public class GameManagerScr : MonoBehaviour
 {
-    private List<Card> _deck;
+    private List<EnumCardValue> _deck;
 
     [SerializeField] private List<GameObject> Players;
 
@@ -15,35 +15,49 @@ public class GameManagerScr : MonoBehaviour
     private void Start()
     {
         CreateDeck();
-        GiveHandCard(_deck);
+        foreach (var player in Players)
+        {
+            var hand = player.GetComponent<PlayerHandsScr>();
+            hand.CreateTilesOnHands();
+            for (int i = 0; i < 6; i++)
+            {
+                DistributionCard(hand);
+            }
+        }
         debug.text = $"Вся колода:{_deck.Count}";
+
     }
 
     private void CreateDeck()
     {
-        _deck = new List<Card>();
+        _deck = new List<EnumCardValue>();
         EnumCardValue cardValue;
-        int countValue = Enum.GetValues(typeof(EnumCardValue)).Length - 1;
+        int countValue = Enum.GetValues(typeof(EnumCardValue)).Length;
         for (int i = 0; i < 102; i++)
         {
-            cardValue = (EnumCardValue)(i%countValue);
-            _deck.Add(new Card(cardValue));
+            cardValue = (EnumCardValue)(i % countValue);
+            _deck.Add(cardValue);
         }
         _deck.Shuffle();
     }
-    void GiveHandCard(List<Card> deck)
-    {
-        int i = 0;
-        while (i++ < 6)
-            GiveCardToHand(deck);
-    }
 
-    void GiveCardToHand(List<Card> deck)
+    private void DistributionCard(PlayerHandsScr handsPlayer)
     {
-        if (deck.Count == 0)
-            return;
-        Card card = deck[0];
-
-        deck.RemoveAt(0);
+        handsPlayer.TakeCardPlayer(_deck[0]);
+        _deck.RemoveAt(0);
     }
+    //void GiveHandCard(List<EnumCardValue> deck)
+    //{
+    //    int i = 0;
+    //    while (i++ < 6)
+    //        GiveCardToHand(deck);
+    //}
+
+    //void GiveCardToHand(List<EnumCardValue> deck)
+    //{
+    //    if (deck.Count == 0)
+    //        return;
+
+    //    deck.RemoveAt(0);
+    //}
 }

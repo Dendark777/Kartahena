@@ -8,13 +8,13 @@ public class Tile : BaseImage
     {
     }
 }
-public static class GameField
+public static class GameFieldScr
 {
     public static List<Tile> allTile = new List<Tile>();
 }
 public class TileManagerScr : MonoBehaviour
 {
-    public LogoInfo LogoInfo { get; set; } = new LogoInfo();
+    public BaseInfo LogoInfo { get; set; } = new BaseInfo();
 
     public void Awake()
     {
