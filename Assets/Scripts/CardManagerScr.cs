@@ -13,11 +13,14 @@ public class CardManagerScr : MonoBehaviour
 
     public GameObject cardPref;
 
+    [SerializeField] private List<GameObject> cardsGO;
+
+
     private void Start()
     {
         CreateDeck();
-        CreateDeckforVisible();
-        CreateCardGOonCardPanel(_visibleCardsDeck, cardPanel);
+        
+        
         giveCardToPlayerhand(_deck);
     }
 
@@ -61,9 +64,24 @@ public class CardManagerScr : MonoBehaviour
     }
     void giveCardToPlayerhand(List<Card> deck)
     {
+
         for (int i = 0; i < 6; i++)
         {
+
             Card card = deck[i];
+
+            var cardLogo = cardsGO[i].GetComponentInChildren<CardGOValue>();
+            var cardInfo = cardsGO[i].GetComponent<CardInfo>();
+            var cardTMp = cardsGO[i].GetComponentInChildren<TextMeshProUGUI>();
+
+            print ($"{card.Logo}");
+
+            /* if (cardLogo.cardValue == $"{card.Logo}")
+             {
+                 cardsGO[i].GetComponent<CardInfo>().cardCount++;
+                 TextMeshProUGUI cardtext = cardTMp;
+                 cardtext.text = $"{cardInfo.cardCount }";
+             }*/
             deck.RemoveAt(i);
     }
 

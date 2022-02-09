@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 public class CardInfo : LogoInfo
 {
-   [SerializeField] public TextMeshProUGUI cardCount;
+    
+    [SerializeField] public TextMeshProUGUI TMpcardCount;
+    public int cardCount;
+    
 }
 
