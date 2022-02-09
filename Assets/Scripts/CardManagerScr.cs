@@ -33,7 +33,7 @@ public class CardManagerScr : MonoBehaviour
             cardValue = (EnumGameObjValue)(i % countValue);
             _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
         }
-       /* _deck.Shuffle();*/
+        _deck.Shuffle();
     }
        
 
@@ -56,32 +56,31 @@ public class CardManagerScr : MonoBehaviour
         for (int numbercard = 0; numbercard < 6; numbercard++)
         {
 
-            Card card = deck[numbercard];
+            Card card = deck[0];
                         
-            print($"значение карты {numbercard}:{card.Logo}");
+            //print($"значение карты {numbercard}:{card.Logo}");
 
-            for (int numberGO = 0; numberGO < 6; numberGO++)
+            for (int numberGO = 0; numberGO < cardsGO.Count; numberGO++)
             {
                 var cardInfo = cardsGO[numberGO].GetComponent<CardInfo>();
 
-                print($"значение объекта{numberGO}:{cardInfo.logo.sprite}");
-                
+                //print($"значение объекта{numberGO}:{cardInfo.logo.sprite}");
+
+                //print($"{card.Logo} {cardInfo.logo.sprite}");
                 
                 if ($"{card.Logo}"==$"{cardInfo.logo.sprite}")
                 {
                     cardInfo.cardCount++;
 
-                    cardInfo.TMProcardCount.text = $"{cardInfo.cardCount }";
+                    cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
                     cardInfo.Image.material = cardInfo.Material;
                     cardInfo.logo.material = cardInfo.Material;
                 }
             }
-            deck.RemoveAt(numbercard);
-
-            /*print ($"{cardInfo.logo.sprite}"); испарвить  */
-
+            deck.RemoveAt(0);
+            //print($"{cardInfo.logo.sprite}"); испарвить
         }
-
+        print(deck.Count);
 
     }
 
