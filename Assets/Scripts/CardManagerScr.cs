@@ -8,10 +8,10 @@ using TMPro;
 public class CardManagerScr : MonoBehaviour
 {
     private List<Card> _deck;
-    private List<Card> _visibleCardsDeck;
+    /*private List<Card> _visibleCardsDeck;
     public Transform cardPanel;
 
-    public GameObject cardPref;
+    public GameObject cardPref;*/
 
     [SerializeField] private List<GameObject> cardsGO;
 
@@ -19,9 +19,8 @@ public class CardManagerScr : MonoBehaviour
     private void Start()
     {
         CreateDeck();
-        
-        
-        giveCardToPlayerhand(_deck);
+                
+        GiveCardToPlayerhand(_deck);
     }
 
     private void CreateDeck()
@@ -34,22 +33,11 @@ public class CardManagerScr : MonoBehaviour
             cardValue = (EnumGameObjValue)(i % countValue);
             _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
         }
-        _deck.Shuffle();
+       /* _deck.Shuffle();*/
     }
+       
 
-    private void CreateDeckforVisible()
-    {
-        _visibleCardsDeck = new List<Card>();
-        EnumGameObjValue cardValue;
-        int countValue = Enum.GetValues(typeof(EnumGameObjValue)).Length;
-        for (int i = 0; i < 6; i++)
-        {
-            cardValue = (EnumGameObjValue)(i % countValue);
-            _visibleCardsDeck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
-        }
-    }
-
-    void CreateCardGOonCardPanel(List<Card> deck, Transform _panel)
+    /*void CreateCardGOonCardPanel(List<Card> deck, Transform _panel)
     {
         if (deck.Count == 0)
             return;
@@ -61,31 +49,40 @@ public class CardManagerScr : MonoBehaviour
             cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
 
         }
-    }
-    void giveCardToPlayerhand(List<Card> deck)
+    }*/
+    void GiveCardToPlayerhand(List<Card> deck)
     {
 
-        for (int i = 0; i < 6; i++)
+        for (int numbercard = 0; numbercard < 6; numbercard++)
         {
 
-            Card card = deck[i];
+            Card card = deck[numbercard];
+                        
+            print($"значение карты {numbercard}:{card.Logo}");
 
-            var cardLogo = cardsGO[i].GetComponentInChildren<CardGOValue>();
-            var cardInfo = cardsGO[i].GetComponent<CardInfo>();
-            var cardTMp = cardsGO[i].GetComponentInChildren<TextMeshProUGUI>();
+            for (int numberGO = 0; numberGO < 6; numberGO++)
+            {
+                var cardInfo = cardsGO[numberGO].GetComponent<CardInfo>();
 
-            print ($"{card.Logo}");
+                print($"значение объекта{numberGO}:{cardInfo.logo.sprite}");
+                
+                
+                if ($"{card.Logo}"==$"{cardInfo.logo.sprite}")
+                {
+                    cardInfo.cardCount++;
 
-            /* if (cardLogo.cardValue == $"{card.Logo}")
-             {
-                 cardsGO[i].GetComponent<CardInfo>().cardCount++;
-                 TextMeshProUGUI cardtext = cardTMp;
-                 cardtext.text = $"{cardInfo.cardCount }";
-             }*/
-            deck.RemoveAt(i);
-    }
+                    cardInfo.TMProcardCount.text = $"{cardInfo.cardCount }";
+                    cardInfo.Image.material = cardInfo.Material;
+                    cardInfo.logo.material = cardInfo.Material;
+                }
+            }
+            deck.RemoveAt(numbercard);
 
-    
+            /*print ($"{cardInfo.logo.sprite}"); испарвить  */
+
+        }
+
+
     }
 
 

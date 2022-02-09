@@ -6,8 +6,11 @@ using TMPro;
 public class CardInfo : LogoInfo
 {
     
-    [SerializeField] public TextMeshProUGUI TMpcardCount;
+    [SerializeField] public TextMeshProUGUI TMProcardCount;
+    [SerializeField] public Image Image;
+    [SerializeField] public Material Material;
     public int cardCount;
+
     
 }
 

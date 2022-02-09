@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CardGOValue : MonoBehaviour
 {
     
-    [SerializeField] public GameObject selfGO;
+   /* [SerializeField] public GameObject selfGO;
     public string GOValue;
     void Start()
     {
@@ -17,5 +17,5 @@ public class CardGOValue : MonoBehaviour
     {
         string _cardValue = $"{GO.GetComponent<Image>().sprite}";
         return _cardValue;
-    }
+    }*/
 }
