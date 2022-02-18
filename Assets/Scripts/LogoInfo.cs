@@ -7,11 +7,11 @@ public class LogoInfo : MonoBehaviour
 {
     public GameObj selfGO;
     [SerializeField] public Image logo;
-    
-    public  void ShowLogoInfo(GameObj _go)
+
+    public void ShowLogoInfo(GameObj _go)
     {
         selfGO = _go;
-        logo.sprite = _go.Logo;
+        logo.sprite = _go.logo;
         logo.preserveAspect = true;
     }
 }

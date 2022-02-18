@@ -19,7 +19,7 @@ public class CardManagerScr : MonoBehaviour
     private void Start()
     {
         CreateDeck();
-                
+
         GiveCardToPlayerhand(_deck);
     }
 
@@ -35,7 +35,7 @@ public class CardManagerScr : MonoBehaviour
         }
         _deck.Shuffle();
     }
-       
+
 
     /*void CreateCardGOonCardPanel(List<Card> deck, Transform _panel)
     {
@@ -57,7 +57,7 @@ public class CardManagerScr : MonoBehaviour
         {
 
             Card card = deck[0];
-                        
+
             //print($"значение карты {numbercard}:{card.Logo}");
 
             for (int numberGO = 0; numberGO < cardsGO.Count; numberGO++)
@@ -67,20 +67,22 @@ public class CardManagerScr : MonoBehaviour
                 //print($"значение объекта{numberGO}:{cardInfo.logo.sprite}");
 
                 //print($"{card.Logo} {cardInfo.logo.sprite}");
-                
-                if ($"{card.Logo}"==$"{cardInfo.logo.sprite}")
+
+                if ($"{card.logo}" == $"{cardInfo.logo.sprite}")
                 {
                     cardInfo.cardCount++;
 
                     cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
+
                     cardInfo.Image.material = cardInfo.Material;
                     cardInfo.logo.material = cardInfo.Material;
                 }
             }
+
             deck.RemoveAt(0);
-            //print($"{cardInfo.logo.sprite}"); испарвить
+
         }
-        print(deck.Count);
+        /*print(deck.Count);*/
 
     }
 

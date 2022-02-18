@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class GameObj
 {
-    public Sprite Logo;
+    public Sprite logo;
 
     public GameObj(EnumGameObjValue gameObjValue, string logoPath)
     {
-        Logo = Resources.Load<Sprite>(logoPath);
+        logo = Resources.Load<Sprite>(logoPath);
     }
 
 }
