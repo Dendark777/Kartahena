@@ -19,8 +19,19 @@ public class CardManagerScr : MonoBehaviour
     private void Start()
     {
         CreateDeck();
+        for (int i = 0; i < 6; i++)
+        {
+            GiveCardToPlayerhand(_deck);
+        }
 
-        GiveCardToPlayerhand(_deck);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GiveCardToPlayerhand(_deck);
+        }
     }
 
     private void CreateDeck()
@@ -52,37 +63,29 @@ public class CardManagerScr : MonoBehaviour
     }*/
     void GiveCardToPlayerhand(List<Card> deck)
     {
+        if (deck.Count == 0) return;
+        Card card = deck[0];
 
-        for (int numbercard = 0; numbercard < 6; numbercard++)
+        foreach (GameObject elem in cardsGO)
         {
+            var cardInfo = elem.GetComponent<CardInfo>();
 
-            Card card = deck[0];
-
-            //print($"значение карты {numbercard}:{card.Logo}");
-
-            for (int numberGO = 0; numberGO < cardsGO.Count; numberGO++)
+            if ($"{card.logo}" == $"{cardInfo.logo.sprite}")
             {
-                var cardInfo = cardsGO[numberGO].GetComponent<CardInfo>();
+                cardInfo.cardCount++;
 
-                //print($"значение объекта{numberGO}:{cardInfo.logo.sprite}");
+                cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
 
-                //print($"{card.Logo} {cardInfo.logo.sprite}");
-
-                if ($"{card.logo}" == $"{cardInfo.logo.sprite}")
-                {
-                    cardInfo.cardCount++;
-
-                    cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
-
-                    cardInfo.Image.material = cardInfo.Material;
-                    cardInfo.logo.material = cardInfo.Material;
-                }
+                cardInfo.Image.material = cardInfo.Material;
+                cardInfo.logo.material = cardInfo.Material;
             }
-
-            deck.RemoveAt(0);
-
         }
-        /*print(deck.Count);*/
+
+
+        deck.RemoveAt(0);
+
+
+        print(deck.Count);
 
     }
 

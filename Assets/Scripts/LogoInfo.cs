@@ -7,6 +7,9 @@ public class LogoInfo : MonoBehaviour
 {
     public GameObj selfGO;
     [SerializeField] public Image logo;
+    [SerializeField] public List<GameObject> chipsPosition;
+    public int chipCount;
+
 
     public void ShowLogoInfo(GameObj _go)
     {

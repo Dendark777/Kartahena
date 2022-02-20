@@ -223,9 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.4437888, g: 0.8784314, b: 0.12941174, a: 0.8509804}
-  m_EffectDistance: {x: 1, y: 1}
-  m_UseGraphicAlpha: 1
+  m_EffectColor: {r: 0.8679245, g: 0.06959773, b: 0.19614562, a: 0.9647059}
+  m_EffectDistance: {x: 4, y: 4}
+  m_UseGraphicAlpha: 0
 --- !u!114 &4636518618273190971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b683890b6bcdb4f459f8fe4a05adeb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChipPanelStart: {fileID: 1941702127734402556, guid: 8c1d85aea948ea441a8318077f767117,
+    type: 3}
+  isSelected: 0
+  currentIndexTile: 0
+  outline: {fileID: 1977431826290665083}
 --- !u!58 &2753109449154695286
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -5,19 +5,19 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TilePanelStraight : MonoBehaviour
+public class TilePanel : MonoBehaviour
 {
     private List<Tile> tileStack;
     [SerializeField] private List<bool> mapPattern;
-    [SerializeField] public List<Tile> tileMap;
+    [SerializeField] public List<GameObject> tileMap;
     public Transform tilePanelTop;
     public Transform tilePanelMiddle;
     public Transform tilePanelBottom;
     public GameObject tilePref;
     public GameObject tilePrefInvisible;
 
-    
-    
+
+
     private void Start()
     {
         CreateTileStack();
@@ -37,21 +37,21 @@ public class TilePanelStraight : MonoBehaviour
         }
         tileStack.Shuffle();
     }
-   
+
     void PlaseTileToPanel(List<Tile> _stack)
     {
         Transform _tilePanel = tilePanelTop;
 
         if (_stack.Count == 0)
             return;
-        int _numberTile=0;
-        
-        tileMap = new List<Tile>();
-        
-        
+        int _numberTile = 0;
+
+        tileMap = new List<GameObject>();
+
+
         for (int i = 0; i < 66; i++)
         {
-            
+
             if (mapPattern[i])
             {
                 Tile tile = _stack[_numberTile++];
@@ -60,22 +60,22 @@ public class TilePanelStraight : MonoBehaviour
                     _numberTile = 0;
                     tileStack.Shuffle();
                 }
-                
+
                 if (i > 21 && i < 44) _tilePanel = tilePanelMiddle;
                 if (i >= 44) _tilePanel = tilePanelBottom;
-                
+
                 GameObject tileGO = Instantiate(tilePref, _tilePanel, false);
-                
+
                 tileGO.GetComponent<LogoInfo>().ShowLogoInfo(tile);
-                tileMap.Add(tile);
+                tileMap.Add(tileGO);
             }
             else
             {
                 Instantiate(tilePrefInvisible, _tilePanel, false);
             }
-            
+
         }
     }
 
-   
+
 }
