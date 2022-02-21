@@ -13,6 +13,7 @@ public class TilePanel : MonoBehaviour
     public Transform tilePanelTop;
     public Transform tilePanelMiddle;
     public Transform tilePanelBottom;
+    public GameObject startTilePref;
     public GameObject tilePref;
     public GameObject tilePrefInvisible;
 
@@ -48,12 +49,19 @@ public class TilePanel : MonoBehaviour
 
         tileMap = new List<GameObject>();
 
+        GameObject startTile = Instantiate(startTilePref, _tilePanel, false);
 
-        for (int i = 0; i < 66; i++)
+        for (int i = 1; i < 72; i++)
         {
+            if (i <= 23) _tilePanel = tilePanelTop;
+
+            if (i > 23 && i < 48) _tilePanel = tilePanelMiddle;
+
+            if (i >= 48) _tilePanel = tilePanelBottom;
 
             if (mapPattern[i])
             {
+
                 Tile tile = _stack[_numberTile++];
                 if (_numberTile > 5)
                 {
@@ -61,21 +69,28 @@ public class TilePanel : MonoBehaviour
                     tileStack.Shuffle();
                 }
 
-                if (i > 21 && i < 44) _tilePanel = tilePanelMiddle;
-                if (i >= 44) _tilePanel = tilePanelBottom;
-
                 GameObject tileGO = Instantiate(tilePref, _tilePanel, false);
-
                 tileGO.GetComponent<LogoInfo>().ShowLogoInfo(tile);
                 tileMap.Add(tileGO);
+
             }
             else
-            {
                 Instantiate(tilePrefInvisible, _tilePanel, false);
-            }
+
+
+
 
         }
     }
+    /*public GameObject TilePref(int index)
+    {
+        if (mapPattern[index])
+            return tilePref;
+        return tilePrefInvisible;
+    }*/
+
 
 
 }
+
+

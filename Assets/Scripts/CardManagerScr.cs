@@ -11,7 +11,7 @@ public class CardManagerScr : MonoBehaviour
     private List<Card> _deckGO;
     /*private List<Card> _visibleCardsDeck;*/
     public Transform cardPanel;
-    private EnumGameObjValue cardValue;
+
     public GameObject cardPref;
 
     [SerializeField] private List<GameObject> cardsGO;
@@ -46,7 +46,6 @@ public class CardManagerScr : MonoBehaviour
         {
             cardValue = (EnumGameObjValue)(i % countValue);
             _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
-            _deckGO.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
         }
         for (int i = 0; i < 6; i++)
         {
@@ -64,8 +63,8 @@ public class CardManagerScr : MonoBehaviour
         {
 
             GameObject cardGO = Instantiate(cardPref, _panel, false);
-
             cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
+            cardsGO.Add(cardGO);
         }
     }
     void GiveCardToPlayerhand(List<Card> deck)
