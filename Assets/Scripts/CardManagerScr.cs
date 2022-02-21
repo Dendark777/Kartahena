@@ -8,10 +8,11 @@ using TMPro;
 public class CardManagerScr : MonoBehaviour
 {
     private List<Card> _deck;
-    /*private List<Card> _visibleCardsDeck;
+    private List<Card> _deckGO;
+    /*private List<Card> _visibleCardsDeck;*/
     public Transform cardPanel;
-
-    public GameObject cardPref;*/
+    private EnumGameObjValue cardValue;
+    public GameObject cardPref;
 
     [SerializeField] private List<GameObject> cardsGO;
 
@@ -19,6 +20,7 @@ public class CardManagerScr : MonoBehaviour
     private void Start()
     {
         CreateDeck();
+        CreateCardGOonCardPanel(_deckGO, cardPanel);
         for (int i = 0; i < 6; i++)
         {
             GiveCardToPlayerhand(_deck);
@@ -37,30 +39,35 @@ public class CardManagerScr : MonoBehaviour
     private void CreateDeck()
     {
         _deck = new List<Card>();
+        _deckGO = new List<Card>();
         EnumGameObjValue cardValue;
         int countValue = Enum.GetValues(typeof(EnumGameObjValue)).Length;
         for (int i = 0; i < 102; i++)
         {
             cardValue = (EnumGameObjValue)(i % countValue);
             _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
+            _deckGO.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            cardValue = (EnumGameObjValue)(i % countValue);
+            _deckGO.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
         }
         _deck.Shuffle();
     }
 
 
-    /*void CreateCardGOonCardPanel(List<Card> deck, Transform _panel)
+    void CreateCardGOonCardPanel(List<Card> deck, Transform _panel)
     {
-        if (deck.Count == 0)
-            return;
-        for (int _numberCard = 0; _numberCard < 6; _numberCard++)
+
+        foreach (Card card in deck)
         {
 
-            Card card = deck[_numberCard];
             GameObject cardGO = Instantiate(cardPref, _panel, false);
-            cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
 
+            cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
         }
-    }*/
+    }
     void GiveCardToPlayerhand(List<Card> deck)
     {
         if (deck.Count == 0) return;
