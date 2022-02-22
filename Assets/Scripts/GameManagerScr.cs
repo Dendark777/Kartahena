@@ -46,18 +46,4 @@ public class GameManagerScr : MonoBehaviour
         handsPlayer.TakeCardPlayer(_deck[0]);
         _deck.RemoveAt(0);
     }
-    //void GiveHandCard(List<EnumCardValue> deck)
-    //{
-    //    int i = 0;
-    //    while (i++ < 6)
-    //        GiveCardToHand(deck);
-    //}
-
-    //void GiveCardToHand(List<EnumCardValue> deck)
-    //{
-    //    if (deck.Count == 0)
-    //        return;
-
-    //    deck.RemoveAt(0);
-    //}
 }

@@ -17,13 +17,13 @@ public class MainBoardScr : MonoBehaviour
     {
         _gameMap = new List<GameObject>();
         CreateTilesOnBoard();
+        ShuffleMap();
     }
 
     public void CreateTilesOnBoard()
     {
         for (int i = 0; i < 5; i++)
         {
-
             if (i == 3)
             {
                 _gameMap.Add(Instantiate(GameTile, transform, false));
@@ -50,7 +50,7 @@ public class MainBoardScr : MonoBehaviour
         }
         Instantiate(FinishTile, transform, false);
         _gameMap.Add(Instantiate(GameTile, transform, false));
-        ShuffleMap();
+        _gameMap.Reverse(12, 11);
     }
 
     private void ShuffleMap()

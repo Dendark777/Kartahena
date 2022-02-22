@@ -18,12 +18,3 @@ public class PlayersManagerScr : MonoBehaviour
 {
     
 }
-
-public enum EnumPlayerColor
-{
-    красный,
-    оранжевый,
-    желтый,
-    зеленый,
-    синий
-}

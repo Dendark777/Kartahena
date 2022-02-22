@@ -9,16 +9,21 @@ public class CardInfo : BaseInfo
     [SerializeField] private TextMeshProUGUI TextCount;
 
 
-    public void initCard(EnumCardValue cardValue)
+    public void InitCard(EnumCardValue cardValue)
     {
         path = $"Sprites/Cards/{cardValue}";
-        base.InitializeTile(cardValue);
-        ShowLogoInfo();
+        Value = cardValue;
+        base.SetLogo();
     }
 
     public void AddCard()
     {
         countCard++;
+        TextCount.text = countCard.ToString();
+    }
+    public void RemoveCard()
+    {
+        countCard--;
         TextCount.text = countCard.ToString();
     }
 }

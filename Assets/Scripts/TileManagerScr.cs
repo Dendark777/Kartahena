@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : BaseImage
+public class Tile : BaseLogo
 {
-    public Tile(EnumCardValue gameObjValue, string logoPath) : base(logoPath)
-    {
-    }
+    //public Tile(EnumCardValue gameObjValue, string logoPath) : base(logoPath)
+    //{
+    //}
 }
 public static class GameFieldScr
 {
