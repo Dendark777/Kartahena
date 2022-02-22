@@ -240,6 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChipPanelStart: {fileID: 1941702127734402556, guid: 8c1d85aea948ea441a8318077f767117,
     type: 3}
+  ChipMoveController: {fileID: 9142436516502141706, guid: bb6f28dfed8d7e74ebd5b82875cff69c,
+    type: 3}
   isSelected: 0
   currentIndexTile: 0
   outline: {fileID: 1977431826290665083}

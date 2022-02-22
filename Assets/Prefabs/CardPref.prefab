@@ -145,8 +145,8 @@ GameObject:
   - component: {fileID: 3512720519822000881}
   - component: {fileID: 3435100133523568131}
   - component: {fileID: -3947664337513908090}
-  - component: {fileID: -4117756186982897477}
   - component: {fileID: 3763911416355875294}
+  - component: {fileID: 5971210089775219116}
   m_Layer: 5
   m_Name: CardPref
   m_TagString: Untagged
@@ -225,24 +225,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logo: {fileID: 369757786360778578}
+  chipsPosition: []
+  material: {fileID: 0}
+  bisyChipPlaceCount: 0
   TMProcardCount: {fileID: 3297810262949531010}
   Image: {fileID: 3435100133523568131}
   Material: {fileID: 2100000, guid: 8c0f7321e64059b4da0d7414a7704cd8, type: 2}
   cardCount: 0
---- !u!114 &-4117756186982897477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2364435237961713538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ae0c78b5563184e970f034b83bc4ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chipPanel: {fileID: 1637928261569734552, guid: d45868aab00665c439c0cfb1cc2f42ea,
-    type: 3}
 --- !u!61 &3763911416355875294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,6 +258,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 110, y: 165}
   m_EdgeRadius: 0
+--- !u!114 &5971210089775219116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364435237961713538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cc29dda4d7b5549a19fc5f8f7ed563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3334367701753140999
 GameObject:
   m_ObjectHideFlags: 0

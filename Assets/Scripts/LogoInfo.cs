@@ -8,7 +8,8 @@ public class LogoInfo : MonoBehaviour
     public GameObj selfGO;
     [SerializeField] public Image logo;
     [SerializeField] public List<GameObject> chipsPosition;
-    public int chipCount;
+    [SerializeField] Material material;
+    public int bisyChipPlaceCount;
 
 
     public void ShowLogoInfo(GameObj _go)
@@ -16,5 +17,15 @@ public class LogoInfo : MonoBehaviour
         selfGO = _go;
         logo.sprite = _go.logo;
         logo.preserveAspect = true;
+    }
+    private void Start()
+    {
+       
+    }
+
+    public void ActiveTile()
+    {
+        GetComponent<Image>().material = material;
+        logo.material = material;
     }
 }

@@ -11,6 +11,16 @@ public class CardInfo : LogoInfo
     [SerializeField] public Material Material;
     public int cardCount;
 
-    
+    private void Update()
+    {
+        
+    }
+    public void UnactiveCard()
+    {
+        TMProcardCount.text = $" ";
+        Image.material = null;
+        logo.material = null;
+        return;
+    }
 }
 

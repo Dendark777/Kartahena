@@ -14,14 +14,14 @@ public class CardManagerScr : MonoBehaviour
 
     public GameObject cardPref;
 
-    [SerializeField] private List<GameObject> cardsGO;
+    [SerializeField] public List<GameObject> cardsGO;
 
 
     private void Start()
     {
         CreateDeck();
         CreateCardGOonCardPanel(_deckGO, cardPanel);
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 24; i++)
         {
             GiveCardToPlayerhand(_deck);
         }
@@ -91,7 +91,7 @@ public class CardManagerScr : MonoBehaviour
         deck.RemoveAt(0);
 
 
-        print(deck.Count);
+        //print(deck.Count);
 
     }
 

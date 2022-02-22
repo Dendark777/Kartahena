@@ -21,7 +21,7 @@ public class MoveChip : MonoBehaviour, IClickable
         var chip = chipPanel.GetComponent<ChipManagerScr>();
         var chipi = GetComponent<Chip>();
 
-        subtractionCoundCard();
+       // subtractionCoundCard();
 
         //print($"{cardInfo.logo.sprite}");
 
@@ -40,16 +40,9 @@ public class MoveChip : MonoBehaviour, IClickable
         }
     }
 
-    private void UnactiveCard()
-    {
-        var cardInfo = GetComponent<CardInfo>();
-        cardInfo.TMProcardCount.text = $" ";
-        cardInfo.Image.material = null;
-        cardInfo.logo.material = null;
-        return;
-    }
+    
 
-    private void subtractionCoundCard()
+   /* private void subtractionCoundCard()
     {
         var cardInfo = GetComponent<CardInfo>();
         if (cardInfo.cardCount > 0)
@@ -61,5 +54,5 @@ public class MoveChip : MonoBehaviour, IClickable
             else
                 cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
         }
-    }
+    }*/
 }
