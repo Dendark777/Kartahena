@@ -64,5 +64,22 @@ public class ChipMoveControllerScr : MonoBehaviour
         }
     }
 
+    public void ChipMove(Component _cardInfo)
+    {
+        List<GameObject> cardsList = cardPanel.GetComponent<CardManagerScr>().cardsGO;
+        List<GameObject> tileMap = tilePanel.GetComponent<TilePanel>().tileMap;
+        //var _cardInfo = card.GetComponent<CardInfo>();
+        for (int index = 0; index < tileMap.Count; index++)
+        {
+            var _tile = tileMap[index].GetComponent<LogoInfo>();
+            var _bisyChipPlaceCount = _tile.bisyChipPlaceCount;
+            var _valueTile = $"{_tile.logo.sprite}";
+            var _valueCard = $"{ _cardInfo.logo.sprite}";
+            var _tileChipPosition = _tile.chipsPosition[0].transform.position;
+            currentSelectChip.DOJump(_tileChipPosition, 1f, 1, 1f, false);
+            if (_valueCard == _valueTile && _bisyChipPlaceCount < 3)
+                return;
+        }
+    }
 
 }
