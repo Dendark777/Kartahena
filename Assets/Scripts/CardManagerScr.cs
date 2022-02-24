@@ -9,7 +9,7 @@ public class CardManagerScr : MonoBehaviour
 {
     private List<Card> _deck;
     private List<Card> _deckGO;
-    /*private List<Card> _visibleCardsDeck;*/
+
     public Transform cardPanel;
 
     public GameObject cardPref;

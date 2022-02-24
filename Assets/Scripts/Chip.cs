@@ -10,7 +10,7 @@ public class Chip : MonoBehaviour, IClickable
     [SerializeField] public bool isSelected = false;
     [SerializeField] public int currentIndexTile = 0;
     public Outline outline;
-    
+
     /*void Start()
     {
         outline = GetComponent<Outline>();
@@ -20,7 +20,9 @@ public class Chip : MonoBehaviour, IClickable
         ChipPanelStart.GetComponent<ChipManagerScr>().UnselectedChip();
         isSelected = true;
         outline.enabled = true;
-        ChipMoveController.GetComponent<ChipMoveControllerScr>().currentSelectChip=this.transform;
+        var _ChipMoveController = ChipMoveController.GetComponent<ChipMoveControllerScr>();
+        _ChipMoveController.currentSelectChip = gameObject;
+        _ChipMoveController.TESTvalue++;
     }
 
 }

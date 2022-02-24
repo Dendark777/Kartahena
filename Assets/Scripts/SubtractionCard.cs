@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubtractionCard : MonoBehaviour,IClickable
+public class SubtractionCard : MonoBehaviour/*,IClickable*/
 {
-    public void Click()
+    /*public void Click()
     {
         subtractionCoundCard();
-    }
-    private void subtractionCoundCard()
+    }*/
+    public void subtractionCoundCard()
     {
         var cardInfo = GetComponent<CardInfo>();
         if (cardInfo.cardCount > 0)

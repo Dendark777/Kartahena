@@ -9,6 +9,7 @@ public class LogoInfo : MonoBehaviour
     [SerializeField] public Image logo;
     [SerializeField] public List<GameObject> chipsPosition;
     [SerializeField] Material material;
+
     public int bisyChipPlaceCount;
 
 
@@ -20,7 +21,7 @@ public class LogoInfo : MonoBehaviour
     }
     private void Start()
     {
-       
+
     }
 
     public void ActiveTile()

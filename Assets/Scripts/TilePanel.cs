@@ -16,14 +16,16 @@ public class TilePanel : MonoBehaviour
     public GameObject startTilePref;
     public GameObject tilePref;
     public GameObject tilePrefInvisible;
-
+    public GameObject chipMoveController;
+    public GameObject cardPanel;
 
 
     private void Start()
     {
         CreateTileStack();
         PlaseTileToPanel(tileStack);
-
+        TileMaptoCard();
+        //chipMoveController.GetComponent<ChipMoveControllerScr>().tileMap = tileMap;
     }
     private void CreateTileStack()
     {
@@ -81,6 +83,15 @@ public class TilePanel : MonoBehaviour
 
 
         }
+    }
+    void TileMaptoCard()
+    {
+        List<GameObject> cardsList = cardPanel.GetComponent<CardManagerScr>().cardsGO;
+        /*foreach (GameObject card in cardsList)
+        {
+            card.GetComponent<CardInfo>().tileMap = tileMap;
+        }*/
+        chipMoveController.GetComponent<ChipMoveControllerScr>().tileMap = tileMap;
     }
     /*public GameObject TilePref(int index)
     {

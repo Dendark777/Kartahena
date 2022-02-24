@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class CardInfo : LogoInfo,IClickable
+using UnityEngine.Events;
+public class CardInfo : LogoInfo, IClickable
 {
-    
+
     [SerializeField] public TextMeshProUGUI TMProcardCount;
     [SerializeField] public Image Image;
     [SerializeField] public Material Material;
     [SerializeField] public GameObject ChipMoveController;
+    [SerializeField] public GameObject tilePanel;
+    public List<GameObject> tileMap;
+    public UnityEvent HitMoveChipEvent;
+
     public int cardCount;
 
     private void Update()
     {
-        
+
     }
     public void UnactiveCard()
     {
@@ -25,9 +30,24 @@ public class CardInfo : LogoInfo,IClickable
     }
     public void Click()
     {
-        ChipMoveController.GetComponent<ChipMoveControllerScr>().ChipMove(this);
+        var _ChipMoveController = ChipMoveController.GetComponent<ChipMoveControllerScr>();
+        _ChipMoveController.currentCardValue = $"{Image.sprite}";
+
+
+        if (_ChipMoveController.currentSelectChip != null)
+        {
+            GetComponent<SubtractionCard>().subtractionCoundCard();
+            _ChipMoveController.ChipMove();
+            //HitMoveChipEvent.Invoke();
+        }
+
+        else
+        {
+            print("Выберите фишку!");
+
+        }
     }
-   
+
 
 }
 

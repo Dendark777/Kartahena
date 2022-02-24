@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-public class MoveChip : MonoBehaviour, IClickable
+public class MoveChip
 {
     [SerializeField] private GameObject chipPanel;
     [SerializeField] private GameObject tilePanel;
@@ -21,7 +21,7 @@ public class MoveChip : MonoBehaviour, IClickable
         var chip = chipPanel.GetComponent<ChipManagerScr>();
         var chipi = GetComponent<Chip>();
 
-       // subtractionCoundCard();
+        // subtractionCoundCard();
 
         //print($"{cardInfo.logo.sprite}");
 
@@ -40,19 +40,19 @@ public class MoveChip : MonoBehaviour, IClickable
         }
     }
 
-    
 
-   /* private void subtractionCoundCard()
-    {
-        var cardInfo = GetComponent<CardInfo>();
-        if (cardInfo.cardCount > 0)
-        {
-            cardInfo.cardCount--;
 
-            if (cardInfo.cardCount == 0)
-                UnactiveCard();
-            else
-                cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
-        }
-    }*/
+    /* private void subtractionCoundCard()
+     {
+         var cardInfo = GetComponent<CardInfo>();
+         if (cardInfo.cardCount > 0)
+         {
+             cardInfo.cardCount--;
+
+             if (cardInfo.cardCount == 0)
+                 UnactiveCard();
+             else
+                 cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
+         }
+     }*/
 }
