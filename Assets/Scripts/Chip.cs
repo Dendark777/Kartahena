@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Chip : MonoBehaviour, IClickable
 {
@@ -10,6 +11,7 @@ public class Chip : MonoBehaviour, IClickable
     [SerializeField] public bool isSelected = false;
     [SerializeField] public int currentIndexTile = 0;
     public Outline outline;
+    public UnityEvent HitSelectChipEvent;
 
     /*void Start()
     {
@@ -20,9 +22,8 @@ public class Chip : MonoBehaviour, IClickable
         ChipPanelStart.GetComponent<ChipManagerScr>().UnselectedChip();
         isSelected = true;
         outline.enabled = true;
-        var _ChipMoveController = ChipMoveController.GetComponent<ChipMoveControllerScr>();
-        _ChipMoveController.currentSelectChip = gameObject;
-        _ChipMoveController.TESTvalue++;
+
+        HitSelectChipEvent.Invoke();
     }
 
 }

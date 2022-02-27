@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6b42b2ff9b6c9bc47806a04e66248391
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tilePanelTop: {instanceID: 0}
+  - tilePanelMiddle: {instanceID: 0}
+  - tilePanelBottom: {instanceID: 0}
+  - startTilePref: {fileID: 1941702127734402556, guid: 8c1d85aea948ea441a8318077f767117,
+      type: 3}
+  - tilePref: {fileID: 9069752902107678369, guid: 47bd738810a449d4db4f4bf40109816e,
+      type: 3}
+  - tilePrefInvisible: {fileID: 247545962812892789, guid: 3256ce950cbd4654bace61cfeb50f7d0,
+      type: 3}
+  - chipMoveController: {fileID: 9142436516502141706, guid: bb6f28dfed8d7e74ebd5b82875cff69c,
+      type: 3}
+  - cardPanel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

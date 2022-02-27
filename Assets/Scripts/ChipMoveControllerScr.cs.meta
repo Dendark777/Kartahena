@@ -3,7 +3,13 @@ guid: 0f65a1f9eaa1fea4ea5a05f00b649471
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cardPanel: {fileID: 3880539146099584000, guid: 63a73a16b88a0c947998dda7d8db4be8,
+      type: 3}
+  - tilePanel: {fileID: 8768799028203173200, guid: a37c46967e7fc0d4c901c610134cb5a3,
+      type: 3}
+  - currentSelectChip: {instanceID: 0}
+  - endturn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

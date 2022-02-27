@@ -37,8 +37,8 @@ public class CardInfo : LogoInfo, IClickable
         if (_ChipMoveController.currentSelectChip != null)
         {
             GetComponent<SubtractionCard>().subtractionCoundCard();
-            _ChipMoveController.ChipMove();
-            //HitMoveChipEvent.Invoke();
+            //_ChipMoveController.ChipMove();
+            HitMoveChipEvent.Invoke();
         }
 
         else

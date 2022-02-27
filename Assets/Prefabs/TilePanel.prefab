@@ -349,6 +349,8 @@ MonoBehaviour:
     type: 3}
   tilePrefInvisible: {fileID: 247545962812892789, guid: 3256ce950cbd4654bace61cfeb50f7d0,
     type: 3}
+  chipMoveController: {fileID: 0}
+  cardPanel: {fileID: 0}
 --- !u!1 &8768799028712555582
 GameObject:
   m_ObjectHideFlags: 0

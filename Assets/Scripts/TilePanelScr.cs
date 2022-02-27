@@ -5,11 +5,11 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TilePanel : MonoBehaviour
+public class TilePanelScr : MonoBehaviour
 {
     private List<Tile> tileStack;
     [SerializeField] private List<bool> mapPattern;
-    [SerializeField] public List<GameObject> tileMap;
+    public List<GameObject> tileMap;
     public Transform tilePanelTop;
     public Transform tilePanelMiddle;
     public Transform tilePanelBottom;
@@ -20,12 +20,12 @@ public class TilePanel : MonoBehaviour
     public GameObject cardPanel;
 
 
-    private void Start()
+    private void Awake()
     {
         CreateTileStack();
         PlaseTileToPanel(tileStack);
-        TileMaptoCard();
-        //chipMoveController.GetComponent<ChipMoveControllerScr>().tileMap = tileMap;
+        //TileMapToChipMoveController();
+        chipMoveController.GetComponent<ChipMoveControllerScr>().tileMapOnChipController = tileMap;
     }
     private void CreateTileStack()
     {
@@ -48,8 +48,6 @@ public class TilePanel : MonoBehaviour
         if (_stack.Count == 0)
             return;
         int _numberTile = 0;
-
-        tileMap = new List<GameObject>();
 
         GameObject startTile = Instantiate(startTilePref, _tilePanel, false);
 
@@ -84,15 +82,10 @@ public class TilePanel : MonoBehaviour
 
         }
     }
-    void TileMaptoCard()
+    /*void TileMapToChipMoveController()
     {
-        List<GameObject> cardsList = cardPanel.GetComponent<CardManagerScr>().cardsGO;
-        /*foreach (GameObject card in cardsList)
-        {
-            card.GetComponent<CardInfo>().tileMap = tileMap;
-        }*/
-        chipMoveController.GetComponent<ChipMoveControllerScr>().tileMap = tileMap;
-    }
+        chipMoveController.GetComponent<ChipMoveControllerScr>().tileMapOnChipController = tileMap;
+    }*/
     /*public GameObject TilePref(int index)
     {
         if (mapPattern[index])
