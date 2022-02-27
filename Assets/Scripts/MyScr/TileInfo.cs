@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TileInfo : BaseInfo
+public class TileInfo : BaseInfo, IPointerClickHandler
 {
     [SerializeField] private Transform PlaceOnTile;
     private List<GameObject> _chipsOnTile;
+
+    public delegate void Selected(TileInfo Tile);
     public void initTile(EnumCardValue cardValue)
     {
         path = $"Sprites/Tiles/T_{cardValue}";
@@ -26,5 +29,10 @@ public class TileInfo : BaseInfo
     public void StepOutTile(GameObject chip)
     {
         _chipsOnTile.Remove(chip);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        
     }
 }

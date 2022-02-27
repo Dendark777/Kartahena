@@ -4,28 +4,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.EventSystems;
 
 public class GameManagerScr : MonoBehaviour
 {
+
+
+    [SerializeField] private List<PlayerScr> _players;
+    [SerializeField] private MainBoardScr _mainBoard;
+
+    private PlayerScr _currentPlayer;
     private List<EnumCardValue> _deck;
-
-    [SerializeField] private List<GameObject> Players;
-
     public TextMeshProUGUI debug;
     private void Start()
     {
         CreateDeck();
-        foreach (var player in Players)
+        _mainBoard.InitMap();
+        foreach (var player in _players)
         {
-            var hand = player.GetComponent<PlayerHandsScr>();
-            hand.CreateTilesOnHands();
+            player.InitPlayer(Color.blue, _mainBoard.GetMap);
             for (int i = 0; i < 6; i++)
             {
-                DistributionCard(hand);
+                DistributionCard(player);
             }
         }
         debug.text = $"Вся колода:{_deck.Count}";
+        _currentPlayer = _players[0];
+    }
 
+    private void Update()
+    {
     }
 
     private void CreateDeck()
@@ -41,9 +49,9 @@ public class GameManagerScr : MonoBehaviour
         _deck.Shuffle();
     }
 
-    private void DistributionCard(PlayerHandsScr handsPlayer)
+    private void DistributionCard(PlayerScr player)
     {
-        handsPlayer.TakeCardPlayer(_deck[0]);
+        player.GiveCard(_deck[0]);
         _deck.RemoveAt(0);
     }
 }

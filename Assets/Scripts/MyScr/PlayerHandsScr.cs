@@ -7,27 +7,34 @@ using UnityEngine.UI;
 public class PlayerHandsScr : MonoBehaviour
 {
     [SerializeField] private GameObject cardPref;
-    private List<CardInfo> cardsOnHands;
-    private int numberCard = 0;
+    private List<CardInfo> _cardsOnHands;
+    public List<CardInfo> GetCardsOnHands => _cardsOnHands;
+
     void Start()
     {
     }
 
     public void CreateTilesOnHands()
     {
-        cardsOnHands = new List<CardInfo>();
+        _cardsOnHands = new List<CardInfo>();
         for (int i = 0; i < 6; i++)
         {
             var card = (EnumCardValue)i;
             GameObject cardGO = Instantiate(cardPref, transform, false);
-            cardsOnHands.Add(cardGO.GetComponent<CardInfo>());
-            cardsOnHands[i].InitCard(card);
+            _cardsOnHands.Add(cardGO.GetComponent<CardInfo>());
+            _cardsOnHands[i].InitCard(card);
         }
+    }
+
+    public bool PlayCard(EnumCardValue card)
+    {
+        var playCard = _cardsOnHands.FirstOrDefault(c => c.GetValue == card);
+        return playCard.RemoveCard();
     }
 
     public void TakeCardPlayer(EnumCardValue card)
     {
-        var cardInfo = cardsOnHands.FirstOrDefault(c => c.GetValue == card);
+        var cardInfo = _cardsOnHands.FirstOrDefault(c => c.GetValue == card);
         cardInfo.AddCard();
     }
 

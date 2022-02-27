@@ -222,4 +222,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logo: {fileID: 3435100133523568131}
-  TextCount: {fileID: 3297810262949531010}
+  Value: 0
+  _textCount: {fileID: 3297810262949531010}

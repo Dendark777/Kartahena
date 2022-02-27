@@ -28,7 +28,7 @@ public class ChipPanelScr : MonoBehaviour , IPointerClickHandler
         for (int i = 0; i < 6; i++)
         {
             var currentChip = Instantiate(Chip, transform, false);
-            currentChip.GetComponent<ChipScr>().ChipInit(Color.blue);
+            currentChip.GetComponent<ChipScr>().ChipInit(color);
             Chips.Add(currentChip.GetComponent<ChipScr>());
         }
         return Chips;

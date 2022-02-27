@@ -10,14 +10,20 @@ public class MainBoardScr : MonoBehaviour
     [SerializeField] private GameObject BlankTile;
     [SerializeField] private GameObject GameTile;
     [SerializeField] private GameObject FinishTile;
-
     [SerializeField] private List<GameObject> _gameMap;
-    // Start is called before the first frame update
-    void Start()
+
+    public List<GameObject> GetMap => _gameMap;
+
+    public void InitMap()
     {
         _gameMap = new List<GameObject>();
         CreateTilesOnBoard();
         ShuffleMap();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     public void CreateTilesOnBoard()
@@ -48,9 +54,10 @@ public class MainBoardScr : MonoBehaviour
         {
             Instantiate(BlankTile, transform, false);
         }
-        Instantiate(FinishTile, transform, false);
+        _gameMap.Add(Instantiate(FinishTile, transform, false));
         _gameMap.Add(Instantiate(GameTile, transform, false));
         _gameMap.Reverse(12, 11);
+        _gameMap.Reverse(35, 2);
     }
 
     private void ShuffleMap()
