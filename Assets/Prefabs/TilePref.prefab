@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 6342034561546578798}
   - component: {fileID: 434669418273278118}
   - component: {fileID: 3301479830606104614}
-  - component: {fileID: 1900222241521976057}
+  - component: {fileID: 9012744978654153415}
   m_Layer: 5
   m_Name: TilePref
   m_TagString: Untagged
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1900222241521976057
+--- !u!114 &9012744978654153415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -545,13 +545,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9069752902107678369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d93ca7a9d1e4504b9078396a4780b15, type: 3}
+  m_Script: {fileID: 11500000, guid: 24938ee21cd9c5c459b1fb30e758002b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   logo: {fileID: 6444543097426222122}
-  chipsPosition:
-  - {fileID: 8005855818829225918}
-  - {fileID: 3725612818010316386}
-  - {fileID: 4468376357003164775}
-  material: {fileID: 2100000, guid: 316aa640e31d8df4a86f35e9cae3fa88, type: 2}
+  chipsPosition: []
+  material: {fileID: 0}
   bisyChipPlaceCount: 0

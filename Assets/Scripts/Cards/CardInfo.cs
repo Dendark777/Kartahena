@@ -12,7 +12,7 @@ public class CardInfo : LogoInfo, IClickable, IObservable
     [SerializeField] public Material Material;
     private readonly ChipMoveManagerScr chipMoveControllerScr;
     private List<ChipMoveManagerScr> _observers;
-    public UnityEvent HitMoveChipEvent;
+    
     public int cardCount;
 
     private void Update()
