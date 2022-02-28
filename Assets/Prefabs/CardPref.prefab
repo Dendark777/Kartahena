@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 3435100133523568131}
   - component: {fileID: -3947664337513908090}
   - component: {fileID: 3763911416355875294}
-  - component: {fileID: 5971210089775219116}
   m_Layer: 5
   m_Name: CardPref
   m_TagString: Untagged
@@ -231,9 +230,6 @@ MonoBehaviour:
   TMProcardCount: {fileID: 3297810262949531010}
   Image: {fileID: 3435100133523568131}
   Material: {fileID: 2100000, guid: 8c0f7321e64059b4da0d7414a7704cd8, type: 2}
-  ChipMoveController: {fileID: 9142436516502141706, guid: bb6f28dfed8d7e74ebd5b82875cff69c,
-    type: 3}
-  tilePanel: {fileID: 0}
   HitMoveChipEvent:
     m_PersistentCalls:
       m_Calls:
@@ -276,18 +272,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 110, y: 165}
   m_EdgeRadius: 0
---- !u!114 &5971210089775219116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2364435237961713538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3cc29dda4d7b5549a19fc5f8f7ed563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3334367701753140999
 GameObject:
   m_ObjectHideFlags: 0

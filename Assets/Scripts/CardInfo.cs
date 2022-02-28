@@ -4,17 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
-public class CardInfo : LogoInfo, IClickable
+public class CardInfo : LogoInfo, IClickable, IObservable
 {
 
     [SerializeField] public TextMeshProUGUI TMProcardCount;
     [SerializeField] public Image Image;
     [SerializeField] public Material Material;
-    [SerializeField] public GameObject ChipMoveController;
-    [SerializeField] public GameObject tilePanel;
-    public List<GameObject> tileMap;
+    private readonly ChipMoveManagerScr chipMoveControllerScr;
+    private List<ChipMoveManagerScr> _observers;
     public UnityEvent HitMoveChipEvent;
-
     public int cardCount;
 
     private void Update()
@@ -28,26 +26,54 @@ public class CardInfo : LogoInfo, IClickable
         logo.material = null;
         return;
     }
+
+    public void SubCoundCard()
+    {
+
+        if (cardCount > 0)
+        {
+            cardCount--;
+
+            if (cardCount == 0)
+                UnactiveCard();
+            else
+                TMProcardCount.text = $"{cardCount}";
+        }
+    }
+
+
     public void Click()
     {
-        var _ChipMoveController = ChipMoveController.GetComponent<ChipMoveControllerScr>();
-        _ChipMoveController.currentCardValue = $"{Image.sprite}";
 
-
-        if (_ChipMoveController.currentSelectChip != null)
+        if (chipMoveControllerScr.currentSelectChipTransform != null)
         {
-            GetComponent<SubtractionCard>().subtractionCoundCard();
-            //_ChipMoveController.ChipMove();
-            HitMoveChipEvent.Invoke();
+            SubCoundCard();
+            NotifyObservers();
         }
 
         else
         {
             print("Выберите фишку!");
-
         }
     }
+    public void AddObserver(MonoBehaviour o)
+    {
+        _observers.Add(o.GetComponent<ChipMoveManagerScr>());
+    }
 
+    public void RemoveObserver(MonoBehaviour o)
+    {
+        _observers.Remove(o.GetComponent<ChipMoveManagerScr>());
+    }
+
+    public void NotifyObservers()
+    {
+        foreach (var item in _observers)
+        {
+            item.ChipMove();
+        }
+
+    }
 
 }
 

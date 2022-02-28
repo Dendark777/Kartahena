@@ -16,7 +16,7 @@ public class TilePanelScr : MonoBehaviour
     public GameObject startTilePref;
     public GameObject tilePref;
     public GameObject tilePrefInvisible;
-    public GameObject chipMoveController;
+    public GameObject chipMoveManager;
     public GameObject cardPanel;
 
 
@@ -25,8 +25,13 @@ public class TilePanelScr : MonoBehaviour
         CreateTileStack();
         PlaseTileToPanel(tileStack);
         //TileMapToChipMoveController();
-        chipMoveController.GetComponent<ChipMoveControllerScr>().tileMapOnChipController = tileMap;
+
     }
+    private void Start()
+    {
+        chipMoveManager.GetComponent<ChipMoveManagerScr>().tileMapOnChipController = tileMap;
+    }
+
     private void CreateTileStack()
     {
         tileStack = new List<Tile>();

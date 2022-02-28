@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2662084, g: 0.034131378, b: 0.5566038, a: 0.2509804}
+  m_Color: {r: 0.2662084, g: 0.034131378, b: 0.5566038, a: 0.627451}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -554,4 +554,4 @@ MonoBehaviour:
   - {fileID: 3725612818010316386}
   - {fileID: 4468376357003164775}
   material: {fileID: 2100000, guid: 316aa640e31d8df4a86f35e9cae3fa88, type: 2}
-  chipCount: 0
+  bisyChipPlaceCount: 0

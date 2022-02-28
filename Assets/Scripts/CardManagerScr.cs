@@ -1,29 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class CardManagerScr : MonoBehaviour
 {
-    private List<Card> _deck;
-    private List<Card> _deckGO;
 
+
+    [SerializeField] private DeckManagerScr deckGO;
     public Transform cardPanel;
-
     public GameObject cardPref;
+    public List<GameObject> cardsGO;
+    private DeckManagerScr deckManagerScr;
 
-    [SerializeField] public List<GameObject> cardsGO;
 
 
     private void Start()
     {
-        CreateDeck();
-        CreateCardGOonCardPanel(_deckGO, cardPanel);
-        for (int i = 0; i < 24; i++)
+        deckManagerScr = new DeckManagerScr();
+
+        CreateCardGOonCardPanel(deckManagerScr.deckGO, cardPanel);
+        for (int i = 0; i < 6; i++)
         {
-            GiveCardToPlayerhand(_deck);
+            AddCardToPlayerHand(deckManagerScr.deck);
         }
 
     }
@@ -32,28 +32,11 @@ public class CardManagerScr : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            GiveCardToPlayerhand(_deck);
+            AddCardToPlayerHand(deckManagerScr.deck);
         }
     }
 
-    private void CreateDeck()
-    {
-        _deck = new List<Card>();
-        _deckGO = new List<Card>();
-        EnumGameObjValue cardValue;
-        int countValue = Enum.GetValues(typeof(EnumGameObjValue)).Length;
-        for (int i = 0; i < 102; i++)
-        {
-            cardValue = (EnumGameObjValue)(i % countValue);
-            _deck.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
-        }
-        for (int i = 0; i < 6; i++)
-        {
-            cardValue = (EnumGameObjValue)(i % countValue);
-            _deckGO.Add(new Card(cardValue, $"Sprites/Logo/{cardValue}"));
-        }
-        _deck.Shuffle();
-    }
+
 
 
     void CreateCardGOonCardPanel(List<Card> deck, Transform _panel)
@@ -61,13 +44,12 @@ public class CardManagerScr : MonoBehaviour
 
         foreach (Card card in deck)
         {
-
             GameObject cardGO = Instantiate(cardPref, _panel, false);
             cardGO.GetComponent<CardInfo>().ShowLogoInfo(card);
             cardsGO.Add(cardGO);
         }
     }
-    void GiveCardToPlayerhand(List<Card> deck)
+    void AddCardToPlayerHand(List<Card> deck)
     {
         if (deck.Count == 0) return;
         Card card = deck[0];
@@ -79,9 +61,7 @@ public class CardManagerScr : MonoBehaviour
             if ($"{card.logo}" == $"{cardInfo.logo.sprite}")
             {
                 cardInfo.cardCount++;
-
                 cardInfo.TMProcardCount.text = $"{cardInfo.cardCount}";
-
                 cardInfo.Image.material = cardInfo.Material;
                 cardInfo.logo.material = cardInfo.Material;
             }
