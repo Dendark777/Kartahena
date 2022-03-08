@@ -11,9 +11,11 @@ public class PlayerScr : MonoBehaviour
     [SerializeField] private MainBoardScr _mainBoard;
     private Color _playerColor;
     private List<ChipScr> _playerChips;
-
+    private ChipScr _currentchip;
     public PlayerHandsScr GetPlayerHands => _playerHands;
 
+    public bool CanMoveChip => _currentchip != null && _currentchip.GetSelect;
+    public bool MoveBack(TileInfo tileInfo) => _currentchip.currentIndexTile > tileInfo.IndexInMap;
 
     public void InitPlayer(Color playerColor, MainBoardScr mainBoard)
     {
@@ -48,41 +50,50 @@ public class PlayerScr : MonoBehaviour
 
     public void PlayCard(EnumCardValue card)
     {
-        var currentChip = _playerChips.FirstOrDefault(c => c.GetSelect);
-        if (currentChip != null && _playerHands.PlayCard(card))
+        //var _currentchip = _playerChips.FirstOrDefault(c => c.GetSelect);
+        if (_currentchip != null && _playerHands.PlayCard(card))
         {
             var target = _mainBoard.FindTargetToMove(card);
-            MoveChip(currentChip, target);
-            _mainBoard.ResetSubstituteLastAccess();
-            ResetSelectChips();
+            TurnPlayer(target);
         }
     }
 
-    private void MoveChip(ChipScr currentChip, TileInfo target)
+    public void TurnPlayer(TileInfo target)
+    {
+        MoveChip(target);
+        _mainBoard.ResetSubstituteLastAccess();
+        ResetSelectChips();
+    }
+
+    private void MoveChip(TileInfo target)
     {
         if (target == null)
         {
             return;
         }
-        if (currentChip.currentIndexTile >= 0)
+        if (_currentchip.currentIndexTile >= 0)
         {
-            _mainBoard.GetMap[currentChip.currentIndexTile].StepOutTile(currentChip.gameObject);
+            _mainBoard.GetMap[_currentchip.currentIndexTile].StepOutTile(_currentchip.gameObject);
         }
-        target.StepInTile(currentChip.gameObject);
-        currentChip.currentIndexTile = target.IndexInMap;
+        target.StepInTile(_currentchip.gameObject);
+        _currentchip.currentIndexTile = target.IndexInMap;
     }
 
     public void SelectedChip(ChipScr selectedChip)
     {
         ResetSelectChips();
+        _currentchip = selectedChip;
         _mainBoard.PrepareMapForMove(selectedChip.currentIndexTile, _playerHands.GetCardsOnHands);
     }
 
     private void ResetSelectChips()
     {
+        _currentchip = null;
         foreach (var chip in _playerChips)
         {
             chip.ResetChip();
         }
     }
+
+
 }
