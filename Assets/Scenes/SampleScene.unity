@@ -8136,11 +8136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ad40407ce6aba4e8e977d925b1de52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlankTile: {fileID: 8686547324072689261, guid: a4baa1c260ecb464199ab0951defb593,
+  _blankTile: {fileID: 8686547324072689261, guid: a4baa1c260ecb464199ab0951defb593,
     type: 3}
-  GameTile: {fileID: 9069752902107678369, guid: 47bd738810a449d4db4f4bf40109816e,
+  _gameTile: {fileID: 9069752902107678369, guid: 47bd738810a449d4db4f4bf40109816e,
     type: 3}
-  FinishTile: {fileID: 1299767823987904663, guid: 6803e3e8dd9e83541ab5693ef0aed2b4,
+  _finishTile: {fileID: 1299767823987904663, guid: 6803e3e8dd9e83541ab5693ef0aed2b4,
     type: 3}
   _gameMap: []
 --- !u!224 &1226720481 stripped
@@ -11932,7 +11932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHands: {fileID: 766335530}
   _chipPanel: {fileID: 923452805}
-  _map: []
+  _mainBoard: {fileID: 0}
 --- !u!1 &1701257213
 GameObject:
   m_ObjectHideFlags: 0

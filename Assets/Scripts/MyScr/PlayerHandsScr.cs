@@ -8,7 +8,8 @@ public class PlayerHandsScr : MonoBehaviour
 {
     [SerializeField] private GameObject cardPref;
     private List<CardInfo> _cardsOnHands;
-    public List<CardInfo> GetCardsOnHands => _cardsOnHands;
+    public List<CardInfo> GetPlaceCardOnPanel => _cardsOnHands;
+    public List<CardInfo> GetCardsOnHands => _cardsOnHands.Where(c => c.GetCount>0).ToList();
 
     void Start()
     {

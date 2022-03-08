@@ -4,57 +4,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChipScr : MonoBehaviour, IPointerClickHandler
+public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
 {
     private Color _playerColor;
-    private int _currentTile;
     private Image imageChip;
+    private List<PlayerScr> _observers;
+    public int currentIndexTile { get; set; }
     private bool _selected;
     private bool _isMoving;
     public bool GetSelect => _selected;
-    public int CurrentIndexTile
-    {
-        get
-        {
-            return _currentTile;
-        }
-        set
-        {
-            _currentTile = value;
-        }
-    }
     public void ChipInit(Color playerColor)
     {
         _playerColor = playerColor;
         imageChip = GetComponent<Image>();
         imageChip.color = playerColor;
-        _currentTile = 0;
+        _observers = new List<PlayerScr>();
+        currentIndexTile = -1;
         _selected = false;
         _isMoving = false;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ChipInit(Color.blue);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
+        NotifyObservers();
         if (eventData.button == PointerEventData.InputButton.Left && !_selected)
         {
             _selected = true;
             StartCoroutine(Blink());
-        }
-        else
-        {
-            ResetChip();
         }
     }
     private IEnumerator Blink()
@@ -81,7 +57,8 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler
     public void MoveChipOnMap(Transform target)
     {
         _isMoving = true;
-        StartCoroutine(MoveToTile(target));
+        //StartCoroutine(MoveToTile(target));
+        ResetChip();
 
     }
 
@@ -100,11 +77,29 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler
         }
 
     }
-    private void ResetChip()
+    public void ResetChip()
     {
         _isMoving = false;
         _selected = false;
         imageChip.color = _playerColor;
         StopAllCoroutines();
+    }
+
+    public void AddObserver(MonoBehaviour o)
+    {
+        _observers.Add(o.GetComponent<PlayerScr>());
+    }
+
+    public void RemoveObserver(MonoBehaviour o)
+    {
+        _observers.Remove(o.GetComponent<PlayerScr>());
+    }
+
+    public void NotifyObservers()
+    {
+        foreach (var item in _observers)
+        {
+            item.SelectedChip(this);
+        }
     }
 }

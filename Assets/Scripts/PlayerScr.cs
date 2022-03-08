@@ -8,26 +8,37 @@ public class PlayerScr : MonoBehaviour
     [SerializeField] private PlayerHandsScr _playerHands;
     [SerializeField] private ChipPanelScr _chipPanel;
 
-    [SerializeField] private List<TileInfo> _map;
+    [SerializeField] private MainBoardScr _mainBoard;
     private Color _playerColor;
     private List<ChipScr> _playerChips;
 
     public PlayerHandsScr GetPlayerHands => _playerHands;
 
-    private void Start()
-    {
-        
-    }
-    public void InitPlayer(Color playerColor, List<GameObject> map)
+
+    public void InitPlayer(Color playerColor, MainBoardScr mainBoard)
     {
         _playerColor = playerColor;
+        InitChipPanel();
+        InitCardPanel();
+        _mainBoard = mainBoard;
+    }
+
+    private void InitChipPanel()
+    {
         _playerChips = _chipPanel.InitPanel(_playerColor);
-        _playerHands.CreateTilesOnHands();
-        foreach (var item in _playerHands.GetCardsOnHands)
+        foreach (var item in _playerChips)
         {
             item.AddObserver(this);
         }
-        _map = map.Select(t => t.GetComponent<TileInfo>()).ToList();
+    }
+
+    private void InitCardPanel()
+    {
+        _playerHands.CreateTilesOnHands();
+        foreach (var item in _playerHands.GetPlaceCardOnPanel)
+        {
+            item.AddObserver(this);
+        }
     }
 
     public void GiveCard(EnumCardValue card)
@@ -40,23 +51,38 @@ public class PlayerScr : MonoBehaviour
         var currentChip = _playerChips.FirstOrDefault(c => c.GetSelect);
         if (currentChip != null && _playerHands.PlayCard(card))
         {
-            var target = SearchTileToMove(card, currentChip);
-            currentChip.MoveChipOnMap(target);
+            var target = _mainBoard.FindTargetToMove(card);
+            MoveChip(currentChip, target);
+            _mainBoard.ResetSubstituteLastAccess();
+            ResetSelectChips();
         }
     }
 
-    private Transform SearchTileToMove(EnumCardValue cardValue, ChipScr currentChip)
+    private void MoveChip(ChipScr currentChip, TileInfo target)
     {
-        var target = _map.Skip(currentChip.CurrentIndexTile).FirstOrDefault(t => t.GetValue == cardValue);
-        if (currentChip.CurrentIndexTile == 0)
+        if (target == null)
         {
-            currentChip.StartOnMap(_map[0].transform);
+            return;
         }
-        if (target != null)
+        if (currentChip.currentIndexTile >= 0)
         {
-            currentChip.CurrentIndexTile = _map.IndexOf(target)+1;
-            return target.transform;
+            _mainBoard.GetMap[currentChip.currentIndexTile].StepOutTile(currentChip.gameObject);
         }
-        return null;
+        target.StepInTile(currentChip.gameObject);
+        currentChip.currentIndexTile = target.IndexInMap;
+    }
+
+    public void SelectedChip(ChipScr selectedChip)
+    {
+        ResetSelectChips();
+        _mainBoard.PrepareMapForMove(selectedChip.currentIndexTile, _playerHands.GetCardsOnHands);
+    }
+
+    private void ResetSelectChips()
+    {
+        foreach (var chip in _playerChips)
+        {
+            chip.ResetChip();
+        }
     }
 }

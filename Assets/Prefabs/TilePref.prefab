@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5710801208862193485}
   - component: {fileID: 1517223081542829456}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PlaceOnTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,4 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logo: {fileID: 3301479830606104614}
   Value: 0
-  PlaceOnTile: {fileID: 5687817936667987640}
+  _placeOnTile: {fileID: 5687817936667987640}
+  canStepToForward: 0
+  canstepToBack: 0

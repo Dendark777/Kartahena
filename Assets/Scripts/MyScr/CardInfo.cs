@@ -9,12 +9,13 @@ public class CardInfo : BaseInfo, IObservable, IPointerClickHandler
 {
     [SerializeField] private TextMeshProUGUI _textCount;
     private int _countCard = 0;
-    private List<PlayerScr> _observers;
 
+    private List<PlayerScr> _observers = new List<PlayerScr>();
+
+    public int GetCount => _countCard;
     public void InitCard(EnumCardValue cardValue)
     {
         path = $"Sprites/Cards/{cardValue}";
-        _observers = new List<PlayerScr>();
         Value = cardValue;
         base.SetLogo();
     }
@@ -47,15 +48,15 @@ public class CardInfo : BaseInfo, IObservable, IPointerClickHandler
 
     public void NotifyObservers()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
         foreach (var item in _observers)
         {
             item.PlayCard(Value);
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        NotifyObservers();
     }
 }
 

@@ -9,7 +9,6 @@ public class ChipPanelScr : MonoBehaviour , IPointerClickHandler
     [SerializeField] private GameObject Chip;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +26,9 @@ public class ChipPanelScr : MonoBehaviour , IPointerClickHandler
         List<ChipScr> Chips = new List<ChipScr>();
         for (int i = 0; i < 6; i++)
         {
-            var currentChip = Instantiate(Chip, transform, false);
-            currentChip.GetComponent<ChipScr>().ChipInit(color);
-            Chips.Add(currentChip.GetComponent<ChipScr>());
+            var currentChip = Instantiate(Chip, transform, false).GetComponent<ChipScr>();
+            currentChip.ChipInit(color);
+            Chips.Add(currentChip);
         }
         return Chips;
     } 
