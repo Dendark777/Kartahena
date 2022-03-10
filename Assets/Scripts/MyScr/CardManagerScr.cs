@@ -8,21 +8,12 @@ public class CardManagerScr : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _countCardsInDeck;
     private List<EnumCardValue> _deck;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Init()
     {
         CreateDeck();
+        _deck.Shuffle();
         _countCardsInDeck.text = $"Вся колода:{_deck.Count}";
     }
 
@@ -36,7 +27,6 @@ public class CardManagerScr : MonoBehaviour
             cardValue = (EnumCardValue)(i % countValue);
             _deck.Add(cardValue);
         }
-        _deck.Shuffle();
     }
 
     public EnumCardValue GiveCard()
@@ -45,6 +35,5 @@ public class CardManagerScr : MonoBehaviour
         _deck.Remove(card);
         _countCardsInDeck.text = $"Вся колода:{_deck.Count}";
         return card;
-
     }
 }

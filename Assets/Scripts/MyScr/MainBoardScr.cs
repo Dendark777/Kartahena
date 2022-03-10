@@ -11,14 +11,14 @@ public class MainBoardScr : MonoBehaviour
     [SerializeField] private GameObject _gameTile;
     [SerializeField] private GameObject _finishTile;
     [SerializeField] private List<TileInfo> _gameMap;
-    private List<int> _IndexsAccessTile;
+    private List<int> _indexsAccessTile;
 
     public List<TileInfo> GetMap => _gameMap;
 
     public void InitMap()
     {
         _gameMap = new List<TileInfo>();
-        _IndexsAccessTile = new List<int>();
+        _indexsAccessTile = new List<int>();
         CreateTilesOnBoard();
         ShuffleMap();
     }
@@ -92,7 +92,7 @@ public class MainBoardScr : MonoBehaviour
         if (result != null)
         {
             result.Shadow();
-            _IndexsAccessTile.Add(result.IndexInMap);
+            _indexsAccessTile.Add(result.IndexInMap);
         }
     }
 
@@ -102,7 +102,7 @@ public class MainBoardScr : MonoBehaviour
         if (result != null)
         {
             result.Shadow();
-            _IndexsAccessTile.Add(result.IndexInMap);
+            _indexsAccessTile.Add(result.IndexInMap);
         }
     }
 
@@ -118,7 +118,7 @@ public class MainBoardScr : MonoBehaviour
 
     public TileInfo FindTargetToMove(EnumCardValue cardValue)
     {
-        foreach (var index in _IndexsAccessTile)
+        foreach (var index in _indexsAccessTile)
         {
             if (_gameMap[index].GetValue == cardValue)
             {
@@ -134,17 +134,17 @@ public class MainBoardScr : MonoBehaviour
         {
             tile?.ResetShadow();
         }
-        _IndexsAccessTile.Clear();
+        _indexsAccessTile.Clear();
     }
 
 
     public void ResetSubstituteLastAccess()
     {
-        foreach (var item in _IndexsAccessTile)
+        foreach (var item in _indexsAccessTile)
         {
             _gameMap[item].ResetShadow();
         }
-        _IndexsAccessTile.Clear();
+        _indexsAccessTile.Clear();
     }
 
 }
