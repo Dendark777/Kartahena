@@ -15,7 +15,7 @@ public class CardInfo : BaseInfo, IObservable, IPointerClickHandler
     public int GetCount => _countCard;
     public void InitCard(EnumCardValue cardValue)
     {
-        path = $"Sprites/Cards/{cardValue}";
+        path = $"Sprites/Logo/{cardValue}";
         Value = cardValue;
         base.SetLogo();
     }
