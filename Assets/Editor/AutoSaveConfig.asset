@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: AutoSaveConfig
   m_EditorClassIdentifier: Assembly-CSharp-Editor:Tarodev:AutoSaveConfig
-  Enabled: 0
+  Enabled: 1
   Frequency: 1
   Logging: 0
