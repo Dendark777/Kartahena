@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Flesh
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -13,17 +15,17 @@ TagManager:
   - UI
   - 
   - 
-  - BackGround
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Zombie
+  - Interact
+  - BodyPart
+  - PlayerBody
+  - PlayerInvisible
+  - PostProcessing Main
+  - PostProcessing Arms
+  - CamExamination
+  - CamWeapon
+  - Ladder
+  - CamSecondExamination
   - 
   - 
   - 
@@ -38,12 +40,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackGround
-    uniqueID: 3963863691
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 3934144843
     locked: 0
