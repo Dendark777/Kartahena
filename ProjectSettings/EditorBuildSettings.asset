@@ -27,5 +27,5 @@ EditorBuildSettings:
     path: Assets/Horror FPS KIT/HFPS Assets/Content/Scenes/Example Scenes/ScenePresistency/SavingScene02.unity
     guid: a7bfff2b296037b4eba8867601e57531
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: f4687e337c6012f40a487fd66e19f2da,
+    com.unity.input.settings: {fileID: 11400000, guid: 40cdbf55ea4b7424790eb61baba3ccb8,
       type: 2}
