@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
 {
+    [SerializeField] private Image _chipHat;
+    [SerializeField] private Image _chipSkull;
+
     private Color _playerColor;
-    private Image imageChip;
     private List<PlayerScr> _observers;
     public int currentIndexTile { get; set; }
     private bool _selected;
@@ -16,8 +18,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
     public void ChipInit(Color playerColor)
     {
         _playerColor = playerColor;
-        imageChip = GetComponent<Image>();
-        imageChip.color = playerColor;
+        _chipHat.color = playerColor;
         _observers = new List<PlayerScr>();
         currentIndexTile = -1;
         _selected = false;
@@ -37,16 +38,23 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
     {
         while (_selected)
         {
-            if (imageChip.color == _playerColor)
+            if (_chipHat.color == _playerColor)
             {
-                imageChip.color = Color.white;
+                _chipSkull.color = NewColor(Color.white,0);
+                _chipHat.color = NewColor(_playerColor, 0);
             }
             else
             {
-                imageChip.color = _playerColor;
+                _chipSkull.color = NewColor(Color.white, 1);
+                _chipHat.color = _playerColor;
             }
             yield return new WaitForSeconds(0.4f);
         }
+    }
+
+    private Color NewColor(Color color, float alpha)
+    {
+        return new Color(color.r, color.g, color.b, alpha);
     }
 
     public void StartOnMap(Transform target)
@@ -57,7 +65,6 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
     public void MoveChipOnMap(Transform target)
     {
         _isMoving = true;
-        //StartCoroutine(MoveToTile(target));
         ResetChip();
 
     }
@@ -81,7 +88,8 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
     {
         _isMoving = false;
         _selected = false;
-        imageChip.color = _playerColor;
+        _chipSkull.color = NewColor(Color.white, 1);
+        _chipHat.color = _playerColor;
         StopAllCoroutines();
     }
 

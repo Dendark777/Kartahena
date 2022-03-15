@@ -34,7 +34,7 @@ public class GameManagerScr : MonoBehaviour
 
     private void InitPlayer(PlayerScr player)
     {
-        player.InitPlayer(Color.blue, _mainBoard);
+        player.InitPlayer(Color.cyan, _mainBoard);
         TakeCardInDeck(player, 6);
     }
 
