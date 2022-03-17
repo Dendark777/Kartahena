@@ -1,9 +1,9 @@
 ﻿public enum EnumCardValue
 {
-    Circle,
-    Triangle,
-    Square,
-    Diamond,
-    Hexagon,
-    Xform
+    Anchor,
+    Bomb,
+    Cannon,
+    Compass,
+    Flag,
+    Map
 }

@@ -15,7 +15,7 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable
     private bool _canSelect;
     public void InitTile(EnumCardValue cardValue, int index)
     {
-        path = $"Sprites/Tiles/T_{cardValue}";
+        path = $"Sprites/Logo/{cardValue}";
         _canSelect = false;
         Value = cardValue;
         _chipsOnTile = new List<GameObject>();
