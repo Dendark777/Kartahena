@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
+public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _chipSkull;
     [SerializeField] private Image _selectOnChip;
+    [SerializeField] private Image _onEnterChip;
 
     private Color _playerColor;
     private List<PlayerScr> _observers;
@@ -35,6 +36,16 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
 
             //StartCoroutine(Blink());
         }
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+
+        _onEnterChip.enabled = true;
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+
+        _onEnterChip.enabled = false;
     }
     /*private IEnumerator Blink()
     {
