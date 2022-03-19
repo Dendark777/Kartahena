@@ -884,8 +884,8 @@ GameObject:
   - component: {fileID: 923452801}
   - component: {fileID: 923452804}
   - component: {fileID: 923452803}
-  - component: {fileID: 923452802}
   - component: {fileID: 923452805}
+  - component: {fileID: 923452802}
   m_Layer: 5
   m_Name: PlayerChipPanel
   m_TagString: Untagged
@@ -925,15 +925,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
+    m_Left: 0
+    m_Right: 0
     m_Top: -100
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 10, y: 20}
+  m_CellSize: {x: 60, y: 60}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 3
 --- !u!114 &923452803
