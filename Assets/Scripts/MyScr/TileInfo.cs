@@ -53,9 +53,15 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        
         if (_canSelect)
         {
             NotifyObservers();
+        }
+        else
+        {
+            var chip = _chipsOnTile[0].GetComponent<ChipScr>();
+            chip.OnPointerClick(eventData);
         }
     }
 

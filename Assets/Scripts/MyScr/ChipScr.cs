@@ -60,9 +60,9 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
         return new Color(color.r, color.g, color.b, alpha);
     }
 
-    public void StartOnMap(Transform target)
+    public void StartOnMap()
     {
-        transform.position = target.position;
+        transform.localScale = new Vector3(0.5f, 0.5f);
     }
 
     public void MoveChipOnMap(Transform target)

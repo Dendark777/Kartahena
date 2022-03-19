@@ -75,6 +75,10 @@ public class PlayerScr : MonoBehaviour
         {
             _mainBoard.GetMap[_currentchip.currentIndexTile].StepOutTile(_currentchip.gameObject);
         }
+        else
+        {
+            _currentchip.StartOnMap();
+        }
         target.StepInTile(_currentchip.gameObject);
         _currentchip.currentIndexTile = target.IndexInMap;
     }
