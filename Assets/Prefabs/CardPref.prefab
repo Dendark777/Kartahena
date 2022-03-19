@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 3512720519822000881}
   - component: {fileID: 3435100133523568131}
   - component: {fileID: -3947664337513908090}
-  - component: {fileID: 4750356290805519175}
+  - component: {fileID: 8120450355136482683}
   m_Layer: 5
   m_Name: CardPref
   m_TagString: Untagged
@@ -227,7 +227,7 @@ MonoBehaviour:
   logo: {fileID: 990968142272300818}
   Value: 0
   _textCount: {fileID: 3297810262949531010}
---- !u!114 &4750356290805519175
+--- !u!114 &8120450355136482683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,12 +245,12 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 30
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
+  m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
 --- !u!1 &3105224258355573663
 GameObject:
@@ -453,7 +453,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 105, y: 105}
+  m_SizeDelta: {x: 105, y: 107.558136}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2381789173763573223
 CanvasRenderer:

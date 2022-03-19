@@ -15,17 +15,17 @@ TagManager:
   - UI
   - 
   - 
-  - Zombie
-  - Interact
-  - BodyPart
-  - PlayerBody
-  - PlayerInvisible
-  - PostProcessing Main
-  - PostProcessing Arms
-  - CamExamination
-  - CamWeapon
-  - Ladder
-  - CamSecondExamination
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 3188587729
     locked: 0

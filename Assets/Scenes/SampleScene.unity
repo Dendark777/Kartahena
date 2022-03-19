@@ -723,7 +723,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 850, y: 325}
+  m_SizeDelta: {x: 850, y: 280}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &766335527
 MonoBehaviour:
@@ -740,10 +740,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 20
     m_Right: 20
-    m_Top: 30
+    m_Top: 20
     m_Bottom: 30
   m_ChildAlignment: 1
-  m_Spacing: 0
+  m_Spacing: -2
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -884,8 +884,8 @@ GameObject:
   - component: {fileID: 923452801}
   - component: {fileID: 923452804}
   - component: {fileID: 923452803}
-  - component: {fileID: 923452802}
   - component: {fileID: 923452805}
+  - component: {fileID: 923452802}
   m_Layer: 5
   m_Name: PlayerChipPanel
   m_TagString: Untagged
@@ -910,7 +910,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 209.46753, y: 325}
+  m_SizeDelta: {x: 209.46753, y: 280}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &923452802
 MonoBehaviour:
@@ -925,15 +925,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: -70
-    m_Bottom: 2
+    m_Left: 0
+    m_Right: 0
+    m_Top: -100
+    m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 1, y: 10}
+  m_CellSize: {x: 60, y: 60}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 3
 --- !u!114 &923452803
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1a313b76c17b547ab60fdf3695388d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chip: {fileID: 2989170932601429588, guid: dfbab5b5fd14d9a45b893bbe2bb58b17, type: 3}
+  Chip: {fileID: 156968, guid: 5a565805a3b46ff459a8e44a72c41c34, type: 3}
 --- !u!1 &1029118747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,7 +1924,7 @@ RectTransform:
   m_GameObject: {fileID: 1697846557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.78156245, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 766335526}
   - {fileID: 923452801}
@@ -1934,8 +1934,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 112.5, y: -3}
-  m_SizeDelta: {x: 1696.9175, y: 330}
+  m_AnchoredPosition: {x: 112.5, y: 0}
+  m_SizeDelta: {x: 1500, y: 280}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1697846559
 MonoBehaviour:
@@ -1989,10 +1989,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 2
-    m_Bottom: 2
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -10
+  m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0

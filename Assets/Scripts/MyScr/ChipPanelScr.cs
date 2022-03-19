@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ChipPanelScr : MonoBehaviour , IPointerClickHandler
+public class ChipPanelScr : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private GameObject Chip;
 
@@ -18,7 +18,7 @@ public class ChipPanelScr : MonoBehaviour , IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public List<ChipScr> InitPanel(Color color)
@@ -31,10 +31,10 @@ public class ChipPanelScr : MonoBehaviour , IPointerClickHandler
             Chips.Add(currentChip);
         }
         return Chips;
-    } 
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+
     }
 }

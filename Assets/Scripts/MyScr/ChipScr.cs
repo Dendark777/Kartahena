@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
 {
-    [SerializeField] private Image _chipHat;
     [SerializeField] private Image _chipSkull;
+    [SerializeField] private Image _selectOnChip;
 
     private Color _playerColor;
     private List<PlayerScr> _observers;
@@ -18,7 +18,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
     public void ChipInit(Color playerColor)
     {
         _playerColor = playerColor;
-        _chipHat.color = playerColor;
+
         _observers = new List<PlayerScr>();
         currentIndexTile = -1;
         _selected = false;
@@ -30,17 +30,19 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
         NotifyObservers();
         if (eventData.button == PointerEventData.InputButton.Left && !_selected)
         {
+            _selectOnChip.enabled = true;
             _selected = true;
-            StartCoroutine(Blink());
+
+            //StartCoroutine(Blink());
         }
     }
-    private IEnumerator Blink()
+    /*private IEnumerator Blink()
     {
         while (_selected)
         {
             if (_chipHat.color == _playerColor)
             {
-                _chipSkull.color = NewColor(Color.white,0);
+                _chipSkull.color = NewColor(Color.white, 0);
                 _chipHat.color = NewColor(_playerColor, 0);
             }
             else
@@ -48,9 +50,10 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
                 _chipSkull.color = NewColor(Color.white, 1);
                 _chipHat.color = _playerColor;
             }
+
             yield return new WaitForSeconds(0.4f);
         }
-    }
+    }*/
 
     private Color NewColor(Color color, float alpha)
     {
@@ -87,10 +90,11 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
     public void ResetChip()
     {
         _isMoving = false;
+        _selectOnChip.enabled = false;
         _selected = false;
-        _chipSkull.color = NewColor(Color.white, 1);
-        _chipHat.color = _playerColor;
-        StopAllCoroutines();
+        // _chipSkull.color = NewColor(Color.white, 1);
+
+        //StopAllCoroutines();
     }
 
     public void AddObserver(MonoBehaviour o)

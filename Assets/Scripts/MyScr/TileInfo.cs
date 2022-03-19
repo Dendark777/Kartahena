@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class TileInfo : BaseInfo, IPointerClickHandler, IObservable
 {
     [SerializeField] private Transform _placeOnTile;
+    [SerializeField] private Image selectOnTile;
 
     private List<GameObject> _chipsOnTile;
     public int CountChipsOnTile => _chipsOnTile.Count;
@@ -17,6 +19,7 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable
     {
         path = $"Sprites/Logo/{cardValue}";
         _canSelect = false;
+        //logo.color = new Color. ((int)cardValue),0,0,1);
         Value = cardValue;
         _chipsOnTile = new List<GameObject>();
         IndexInMap = index;
@@ -36,13 +39,15 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable
 
     public void Shadow()
     {
-        logo.color = Color.yellow;
+        //logo.color = Color.yellow;
+        selectOnTile.enabled = true;
         _canSelect = true;
     }
 
     public void ResetShadow()
     {
-        logo.color = Color.white;
+        //logo.color = Color.white;
+        selectOnTile.enabled = false;
         _canSelect = false;
     }
 
