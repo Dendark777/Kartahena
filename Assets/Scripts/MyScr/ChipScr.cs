@@ -32,7 +32,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
         NotifyObservers();
         if (eventData.button == PointerEventData.InputButton.Left && !_selected)
         {
-            
+
             _selected = true;
             _onEnterChip.material = _selectOnClick;
             //StartCoroutine(Blink());
@@ -40,14 +40,18 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _onEnterChip.material = _selectOnEnter;
         _onEnterChip.enabled = true;
+        if (!_selected)
+            _onEnterChip.material = _selectOnEnter;
+
+
+
 
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(!_selected)
-        _onEnterChip.enabled = false;
+        if (!_selected)
+            _onEnterChip.enabled = false;
     }
     /*private IEnumerator Blink()
     {
