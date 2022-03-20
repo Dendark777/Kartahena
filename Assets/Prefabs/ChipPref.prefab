@@ -173,7 +173,6 @@ GameObject:
   - component: {fileID: 22496418}
   - component: {fileID: 22200150}
   - component: {fileID: 6435251304370450950}
-  - component: {fileID: 2889942786753364082}
   - component: {fileID: 865350584672208326}
   - component: {fileID: 924055951312295900}
   - component: {fileID: 2188473240218575423}
@@ -233,26 +232,6 @@ MonoBehaviour:
   _frame: {fileID: 7700552900189065021}
   _frameOnEnter: {fileID: 2100000, guid: d4c1392d15fc4ab489be65aa6044f794, type: 2}
   _frameOnClick: {fileID: 2100000, guid: b89c0f434ae57664592bef02c8b8a659, type: 2}
---- !u!114 &2889942786753364082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: 60
-  m_FlexibleHeight: 60
-  m_LayoutPriority: 1
 --- !u!82 &865350584672208326
 AudioSource:
   m_ObjectHideFlags: 0
@@ -515,7 +494,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0faa7132c26f7f74e8ad9333f8632fe9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 120e6e91ff431b34c9414a362b0d9e79, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

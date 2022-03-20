@@ -33,7 +33,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
         gameObject.GetComponent<Btn_SFX>().ClickSound();
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-           
+
         }
     }
     public void OnPointerEnter(PointerEventData eventData)
@@ -54,7 +54,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
 
     public void StartOnMap()
     {
-        transform.localScale = new Vector3(0.5f, 0.5f);
+        transform.localScale = new Vector3(0.6f, 0.6f);
     }
 
     public void MoveChipOnMap(Transform target)
@@ -68,7 +68,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
         _isMoving = false;
         _frame.enabled = false;
         _selected = false;
-        
+
     }
 
     public void SelectedChip()
