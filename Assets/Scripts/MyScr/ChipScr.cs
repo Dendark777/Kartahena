@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
+public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _chipSkull;
     [SerializeField] private Image _selectOnChip;
-
+    [SerializeField] private Image _onEnterChip;
+    [SerializeField] private Material _selectOnEnter;
+    [SerializeField] private Material _selectOnClick;
     private Color _playerColor;
     private List<PlayerScr> _observers;
     public int currentIndexTile { get; set; }
@@ -30,11 +32,26 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable
         NotifyObservers();
         if (eventData.button == PointerEventData.InputButton.Left && !_selected)
         {
-            _selectOnChip.enabled = true;
-            _selected = true;
 
+            _selected = true;
+            _onEnterChip.material = _selectOnClick;
             //StartCoroutine(Blink());
         }
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _onEnterChip.enabled = true;
+        if (!_selected)
+            _onEnterChip.material = _selectOnEnter;
+
+
+
+
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!_selected)
+            _onEnterChip.enabled = false;
     }
     /*private IEnumerator Blink()
     {
