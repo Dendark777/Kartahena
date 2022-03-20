@@ -87,7 +87,8 @@ public class PlayerScr : MonoBehaviour
     {
         ResetSelectChips();
         _currentchip = selectedChip;
-        _mainBoard.PrepareMapForMove(selectedChip.currentIndexTile, _playerHands.GetCardsOnHands);
+        _currentchip.SelectedChip();
+        _mainBoard.PrepareMapForMove(_currentchip.currentIndexTile, _playerHands.GetCardsOnHands);
     }
 
     private void ResetSelectChips()

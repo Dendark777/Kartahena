@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image _chipSkull;
-    [SerializeField] private Image _selectOnChip;
-    [SerializeField] private Image _onEnterChip;
-    [SerializeField] private Material _selectOnEnter;
-    [SerializeField] private Material _selectOnClick;
+    [SerializeField] private Image _chipIconBG;
+    [SerializeField] private Image _frame;
+    [SerializeField] private Material _frameOnEnter;
+    [SerializeField] private Material _frameOnClick;
     private Color _playerColor;
     private List<PlayerScr> _observers;
     public int currentIndexTile { get; set; }
@@ -30,51 +29,27 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
     public void OnPointerClick(PointerEventData eventData)
     {
         NotifyObservers();
-        if (eventData.button == PointerEventData.InputButton.Left && !_selected)
+        _frame.material = _frameOnClick;
+        gameObject.GetComponent<Btn_SFX>().ClickSound();
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-
-            _selected = true;
-            _onEnterChip.material = _selectOnClick;
-            //StartCoroutine(Blink());
+           
         }
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _onEnterChip.enabled = true;
+        _frame.enabled = true;
         if (!_selected)
-            _onEnterChip.material = _selectOnEnter;
+        {
+            _frame.material = _frameOnEnter;
+            gameObject.GetComponent<Btn_SFX>().HoverSound();
 
-
-
-
+        }
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!_selected)
-            _onEnterChip.enabled = false;
-    }
-    /*private IEnumerator Blink()
-    {
-        while (_selected)
-        {
-            if (_chipHat.color == _playerColor)
-            {
-                _chipSkull.color = NewColor(Color.white, 0);
-                _chipHat.color = NewColor(_playerColor, 0);
-            }
-            else
-            {
-                _chipSkull.color = NewColor(Color.white, 1);
-                _chipHat.color = _playerColor;
-            }
-
-            yield return new WaitForSeconds(0.4f);
-        }
-    }*/
-
-    private Color NewColor(Color color, float alpha)
-    {
-        return new Color(color.r, color.g, color.b, alpha);
+            _frame.enabled = false;
     }
 
     public void StartOnMap()
@@ -86,32 +61,21 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
     {
         _isMoving = true;
         ResetChip();
-
     }
 
-    private IEnumerator MoveToTile(Transform target)
-    {
-        while (_isMoving)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, 0.01f);
-            yield return new WaitForSeconds(0.001f);
-            if (transform.position == target.position)
-            {
-                transform.SetParent(transform, true);
-                ResetChip();
-                break;
-            }
-        }
-
-    }
     public void ResetChip()
     {
         _isMoving = false;
-        _selectOnChip.enabled = false;
+        _frame.enabled = false;
         _selected = false;
-        // _chipSkull.color = NewColor(Color.white, 1);
+        
+    }
 
-        //StopAllCoroutines();
+    public void SelectedChip()
+    {
+        _frame.enabled = true;
+        _frame.material = _frameOnClick;
+        _selected = true;
     }
 
     public void AddObserver(MonoBehaviour o)
