@@ -58,7 +58,7 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable
         {
             NotifyObservers();
         }
-        else
+        if (_chipsOnTile.Count > 0)
         {
             var chip = _chipsOnTile[0].GetComponent<ChipScr>();
             chip.OnPointerClick(eventData);
