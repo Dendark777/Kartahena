@@ -473,4 +473,6 @@ MonoBehaviour:
   logo: {fileID: 4977924032500345408}
   Value: 0
   _placeOnTile: {fileID: 5687817936667987640}
-  selectOnTile: {fileID: 7426916682387612673}
+  _frame: {fileID: 7426916682387612673}
+  _frameOnEnter: {fileID: 2100000, guid: 74acbd0e86e4e2d409c5c01be2c60f08, type: 2}
+  _frameCanSelect: {fileID: 2100000, guid: 5569a8dfae4ff3845bf8a3ec67f9e3c4, type: 2}

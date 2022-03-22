@@ -8,22 +8,31 @@ using UnityEngine.EventSystems;
 public class CardInfo : BaseInfo, IObservable, IPointerClickHandler
 {
     [SerializeField] private TextMeshProUGUI _textCount;
+    private Animator _animTextAddCount;
     private int _countCard = 0;
-
+    
+    
     private List<PlayerScr> _observers = new List<PlayerScr>();
 
     public int GetCount => _countCard;
     public void InitCard(EnumCardValue cardValue)
     {
-        path = $"Sprites/Logo/{cardValue}";
+        path = $"Sprites/Game/Logo/{cardValue}";
         Value = cardValue;
         base.SetLogo();
     }
 
     public void AddCard()
     {
+        PlayAnimation();
         _countCard++;
         _textCount.text = _countCard.ToString();
+        
+    }
+    public void PlayAnimation()
+    {
+        _animTextAddCount = GetComponentInChildren<Animator>();
+        _animTextAddCount.SetTrigger("Play");
     }
     public bool RemoveCard()
     {
