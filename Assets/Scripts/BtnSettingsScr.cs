@@ -5,21 +5,24 @@ using UnityEngine.EventSystems;
 
 public class BtnSettingsScr : MonoBehaviour,IPointerClickHandler
 {
-    [SerializeField] private GameObject PopupSetting;
+    [SerializeField] private GameObject SettingsMenu;
     [SerializeField] private List<GameObject> flames;
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        PopupSetting.SetActive(true);
+        SettingsMenu.SetActive(true);
         HideFlames();
     }
    
     public void HideFlames()
     {
-        foreach(var elem in flames)
+        if (flames != null)
         {
-           if (elem.activeInHierarchy)
-                elem.SetActive(false);
+            foreach (var elem in flames)
+            {
+                if (elem.activeInHierarchy)
+                    elem.SetActive(false);
+            }
         }
     }
 }
