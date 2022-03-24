@@ -23,14 +23,14 @@ public class ChipPanelScr : MonoBehaviour, IPointerClickHandler
 
     public List<ChipScr> InitPanel(Color color)
     {
-        List<ChipScr> Chips = new List<ChipScr>();
+        List<ChipScr> chips = new List<ChipScr>();
         for (int i = 0; i < 6; i++)
         {
             var currentChip = Instantiate(Chip, transform, false).GetComponent<ChipScr>();
             currentChip.ChipInit(color);
-            Chips.Add(currentChip);
+            chips.Add(currentChip);
         }
-        return Chips;
+        return chips;
     }
 
     public void OnPointerClick(PointerEventData eventData)
