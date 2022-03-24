@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 
-public class LightFlicker : MonoBehaviour
+public class LightFlickerScr : MonoBehaviour
 {
     private Light2D light2D;
     [SerializeField] private float minIntensity = 0.3f;

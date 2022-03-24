@@ -30,7 +30,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
     {
         NotifyObservers();
         _frame.material = _frameOnClick;
-        gameObject.GetComponent<Btn_SFX>().ClickSound();
+        gameObject.GetComponent<Btn_SFX_Scr>().ClickSound();
         if (eventData.button == PointerEventData.InputButton.Left)
         {
 
@@ -42,7 +42,7 @@ public class ChipScr : MonoBehaviour, IPointerClickHandler, IObservable, IPointe
         if (!_selected)
         {
             _frame.material = _frameOnEnter;
-            gameObject.GetComponent<Btn_SFX>().HoverSound();
+            gameObject.GetComponent<Btn_SFX_Scr>().HoverSound();
 
         }
     }

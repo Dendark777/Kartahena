@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Btn_SFX : MonoBehaviour
+public class Btn_SFX_Scr : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip hoverFX;
