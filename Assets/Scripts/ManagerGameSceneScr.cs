@@ -6,7 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class GameManagerScr : MonoBehaviour
+public class ManagerGameSceneScr : MonoBehaviour
 {
 
 
@@ -14,7 +14,7 @@ public class GameManagerScr : MonoBehaviour
     [SerializeField] private MainBoardScr _mainBoard;
     [SerializeField] private CardManagerScr _cardManager;
     private PlayerScr _currentPlayer;
-    public static GameManagerScr Instance { get; private set; }
+    public static ManagerGameSceneScr Instance { get; private set; }
 
     private void Awake()
     {

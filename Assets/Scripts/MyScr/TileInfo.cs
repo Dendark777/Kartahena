@@ -91,6 +91,6 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable, IPointerEnt
 
     public void NotifyObservers()
     {
-        GameManagerScr.Instance.NotifyClickOnTile(this);
+        ManagerGameSceneScr.Instance.NotifyClickOnTile(this);
     }
 }

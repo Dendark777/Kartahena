@@ -636,9 +636,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 527180793}
-  - component: {fileID: 527180792}
   - component: {fileID: 527180795}
   - component: {fileID: 527180794}
+  - component: {fileID: 527180796}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -646,22 +646,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &527180792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527180791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c21b227ea9c8b942b5db23eb0611b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _players:
-  - {fileID: 1697846562}
-  _mainBoard: {fileID: 1221670358}
-  _cardManager: {fileID: 1029118752}
 --- !u!4 &527180793
 Transform:
   m_ObjectHideFlags: 0
@@ -710,6 +694,22 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &527180796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527180791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16cf69795f57d64ea26d235a676e8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _players:
+  - {fileID: 1697846562}
+  _mainBoard: {fileID: 1221670358}
+  _cardManager: {fileID: 1029118752}
 --- !u!1 &662839548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHands: {fileID: 766335530}
   _chipPanel: {fileID: 923452805}
-  _mainBoard: {fileID: 0}
+  _mainBoard: {fileID: 1221670358}
 --- !u!1 &1701257213
 GameObject:
   m_ObjectHideFlags: 0
