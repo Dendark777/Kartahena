@@ -316,7 +316,7 @@ PrefabInstance:
     - target: {fileID: 6948356881522736882, guid: e04450c082fe3bb4199f6671147c5028,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.999939
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 6948356881522736882, guid: e04450c082fe3bb4199f6671147c5028,
         type: 3}
@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 806015081}
   - component: {fileID: 806015082}
   - component: {fileID: 806015083}
+  - component: {fileID: 806015084}
   m_Layer: 0
   m_Name: Soundtrack
   m_TagString: Untagged
@@ -710,11 +711,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3b2167d3adac9224191e991ea88ac526, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -815,6 +816,24 @@ MonoBehaviour:
   sliderTag: BG_MUSIC_VOLUME_SLIDER
   textVolumeTag: BG_MUSIC_VOLUME_TEXT
   volume: 0
+--- !u!114 &806015084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806015080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b739bce578104d891a84f295244f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 3b2167d3adac9224191e991ea88ac526, type: 3}
+  - {fileID: 8300000, guid: 77a23bcd10e3157478ac78986235b3d1, type: 3}
+  - {fileID: 8300000, guid: ea641dd33bb84e2448629b51ddfd3fcf, type: 3}
+  - {fileID: 8300000, guid: a5ec392993f8ec8418c699353773db53, type: 3}
+  audio: {fileID: 806015082}
 --- !u!224 &828083961 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6948356881522736882, guid: e04450c082fe3bb4199f6671147c5028,
@@ -1556,7 +1575,7 @@ PrefabInstance:
     - target: {fileID: 2652889928815774950, guid: 52ad6920c2a4d72438f2e7223212036d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2652889929138777523, guid: 52ad6920c2a4d72438f2e7223212036d,
         type: 3}
