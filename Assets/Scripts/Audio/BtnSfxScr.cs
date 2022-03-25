@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-public class Btn_SFX_Scr : MonoBehaviour
+
+public class BtnSfxScr : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip hoverFX;
     public AudioClip clickFX;
 
-    public void HoverSound()
+    
+    public void SoundOnPointerEnter()
     {
         audioSource.PlayOneShot(hoverFX);
     }
-    public void ClickSound()
+
+    public void SoundOnPointerClick()
     {
         audioSource.PlayOneShot(clickFX);
     }

@@ -59,6 +59,7 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable, IPointerEnt
         {
             _frame.enabled = true;
             _frame.material = _frameOnEnter;
+            GetComponent<BtnSfxScr>().SoundOnPointerEnter();
         }  
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -71,11 +72,13 @@ public class TileInfo : BaseInfo, IPointerClickHandler, IObservable, IPointerEnt
         if (_canSelect)
         {
             NotifyObservers();
+          
         }
         else if (_chipsOnTile.Count > 0)
         {
             var chip = _chipsOnTile[0].GetComponent<ChipScr>();
             chip.OnPointerClick(eventData);
+            GetComponent<BtnSfxScr>().SoundOnPointerClick();
         }
     }
 

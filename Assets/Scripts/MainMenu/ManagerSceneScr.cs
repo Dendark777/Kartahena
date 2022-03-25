@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ManagerSceneScr : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     void Start()
     {
         GameManager.IndexCurrnetScene = SceneManager.GetActiveScene().buildIndex;

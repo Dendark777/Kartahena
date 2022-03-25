@@ -188,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80f4729d1def4247831cb7d5456a792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 0.3
-  maxIntensity: 0.9
-  noiseSpeed: 0.15
+  minIntensity: 0.1
+  maxIntensity: 0.3
+  noiseSpeed: 10
   flickerON: 0
   randomTimerValueMIN: 5
   randomTimerValueMAX: 25
@@ -383,9 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80f4729d1def4247831cb7d5456a792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 0.3
-  maxIntensity: 0.8
-  noiseSpeed: 0.15
+  minIntensity: 0.1
+  maxIntensity: 0.3
+  noiseSpeed: 10
   flickerON: 0
   randomTimerValueMIN: 10
   randomTimerValueMAX: 30
@@ -702,9 +702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80f4729d1def4247831cb7d5456a792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 0.3
-  maxIntensity: 0.8
-  noiseSpeed: 0.5
+  minIntensity: 0.1
+  maxIntensity: 0.3
+  noiseSpeed: 10
   flickerON: 0
   randomTimerValueMIN: 6
   randomTimerValueMAX: 15

@@ -179,10 +179,10 @@ RectTransform:
   m_Father: {fileID: 22498064}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2, y: -2}
-  m_SizeDelta: {x: -4, y: 16}
+  m_SizeDelta: {x: -4, y: -8}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &175574
 GameObject:
@@ -268,7 +268,6 @@ GameObject:
   m_Component:
   - component: {fileID: 22498064}
   - component: {fileID: 11455828}
-  - component: {fileID: 11446082}
   m_Layer: 5
   m_Name: Slider Horizontal
   m_TagString: Untagged
@@ -348,18 +347,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &11446082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e1ce3fe4b4851478e36a2f9a4db54b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &191116
 GameObject:
   m_ObjectHideFlags: 0

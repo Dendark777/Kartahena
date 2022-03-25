@@ -10,13 +10,7 @@ public class SoundVolumeControllerScr : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] TextMeshProUGUI textVolume;
 
-    //[Header("Keys")]
-    //[SerializeField] private string saveVolumeKey;
-
-    //[Header("Tags")]
-    //[SerializeField] private string sliderTag;
-    //[SerializeField] private string textVolumeTag;
-
+   
     [Header("Parameters")]
     [SerializeField] private float volume;
 

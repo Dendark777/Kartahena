@@ -6,7 +6,7 @@ public class Settings
 {
     public AudioSource MusicAudioSource { get; set; }
 
-    public Settings(float volumeMusic = 1)
+    public Settings(float volumeMusic = 0.5f)
     {
     }
 
